@@ -1,270 +1,435 @@
 
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Syful Islam Siyam | Legendary Portfolio (Dark Mode)</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <style>
-    body {
-      background-color: #0f172a;
-      color: #cbd5e1;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    a {
-      color: #7dd3fc;
-      transition: color 0.2s ease;
-    }
-    a:hover, a:focus {
-      color: #38bdf8;
-      outline: none;
-    }
-    header {
-      background: #1e293b;
-      box-shadow: 0 0 30px #38bdf8aa;
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-    }
-    header img {
-      border: 4px solid #38bdf8;
-      box-shadow: 0 0 15px #38bdf8cc;
-      border-radius: 9999px;
-    }
-    nav[aria-label="Main tabs"] {
-      display: flex;
-      justify-content: center;
-      margin-top: 3rem;
-      gap: 1.5rem;
-    }
-    .tab-btn {
-      cursor: pointer;
-      padding: 0.5rem 1.5rem;
-      font-weight: 600;
-      font-size: 1.125rem;
-      border-bottom: 3px solid transparent;
-      color: #7dd3fc;
-      background: transparent;
-      transition: border-color 0.3s ease, color 0.3s ease;
-      border-radius: 0.5rem 0.5rem 0 0;
-      user-select: none;
-    }
-    .tab-btn:hover,
-    .tab-btn:focus-visible {
-      color: #38bdf8;
-      outline-offset: 4px;
-      outline: 2px solid #38bdf8aa;
-      outline-radius: 0.5rem;
-    }
-    .tab-btn.active {
-      border-bottom-color: #38bdf8;
-      color: #38bdf8;
-      font-weight: 700;
-      box-shadow: inset 0 -3px 6px #38bdf8bb;
-    }
-    .tab-content > section {
-      display: none;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Md Syful Islam Siyam | Portfolio</title>
+
+<style>
+  /* Reset & base */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    background: #0f172a;
+    color: #e1e7ef;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a {
+    color: #50d9ff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 960px;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  header img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #1ec8e7;
+    box-shadow: 0 0 20px #1ec8e7aa;
+    object-fit: cover;
+  }
+  header h1 {
+    font-size: 2.8rem;
+    margin: 1rem 0 0.2rem;
+    color: #50d9ff;
+    text-shadow: 0 0 8px #1ec8e7bb;
+  }
+  header .typed-text {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #a0e7ff;
+  }
+  header p.subtitle {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #7aaec8;
+  }
+  header nav.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  header nav.social-links a {
+    font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border: 1.5px solid #1ec8e7;
+    border-radius: 50px;
+    background: #142737;
+    box-shadow: 0 0 8px #1ec8e730;
+    transition: background 0.3s;
+  }
+  header nav.social-links a:hover {
+    background: #1ec8e7;
+    color: #0f172a;
+    box-shadow: 0 0 14px #1ec8e7cc;
+  }
+
+  /* Tabs */
+  nav.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  nav.tabs button.tab-btn {
+    background: #142737;
+    border: none;
+    color: #a0e7ff;
+    padding: 0.7rem 1.8rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    cursor: pointer;
+    box-shadow: 0 0 6px #1ec8e720;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+  }
+  nav.tabs button.tab-btn.active,
+  nav.tabs button.tab-btn:focus {
+    background: #1ec8e7;
+    color: #0f172a;
+    box-shadow: 0 0 14px #1ec8e7cc;
+    outline: none;
+  }
+
+  /* Tab panels */
+  .tab-content > section {
+    display: none;
+    background: #142737;
+    padding: 1.8rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 0 25px #1ec8e735;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  .tab-content > section.active {
+    display: block;
+  }
+
+  @keyframes fadeInUp {
+    from {
       opacity: 0;
-      transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-      max-width: 720px;
-      margin: 2rem auto 4rem;
-      padding: 2rem;
-      border-radius: 1rem;
-      box-shadow: 0 0 30px #38bdf833;
-      user-select: none;
+      transform: translateY(15px);
     }
-    .tab-content > section.active {
-      display: block;
+    to {
       opacity: 1;
       transform: translateY(0);
     }
+  }
 
-    /* Unique backgrounds for each tab */
-    #about {
-      background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
-      color: #dbeafe;
-      box-shadow: 0 0 40px #2563ebaa;
-    }
-    #skills {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #7dd3fc;
-      box-shadow: 0 0 40px #38bdf8cc;
-      position: relative;
-      overflow: hidden;
-      height: 320px;
-    }
-    #projects {
-      background: linear-gradient(135deg, #14532d 0%, #22c55e 100%);
-      color: #dcfce7;
-      box-shadow: 0 0 40px #22c55eee;
-    }
-    #contact {
-      background: linear-gradient(135deg, #581c87 0%, #9333ea 100%);
-      color: #f3e8ff;
-      box-shadow: 0 0 40px #9333eaee;
-    }
+  /* About */
+  #about p {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #a0c4ff;
+  }
 
-    /* Headings glowing animation for all tabs */
-    section h2 {
-      text-align: center;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      color: inherit;
-      text-shadow:
-        0 0 10px rgba(59, 130, 246, 0.8),
-        0 0 20px rgba(59, 130, 246, 0.6);
-      animation: glowPulse 3s ease-in-out infinite;
-    }
+  /* Skills - floating bubbles container */
+  #skills {
+    position: relative;
+    height: 320px;
+  }
 
-    @keyframes glowPulse {
-      0%, 100% { text-shadow: 0 0 10px rgba(59,130,246,0.8), 0 0 20px rgba(59,130,246,0.6); }
-      50% { text-shadow: 0 0 20px rgba(96,165,250,1), 0 0 40px rgba(96,165,250,0.8); }
-    }
+  /* Skill bubbles */
+  .skill-bubble {
+    position: absolute;
+    padding: 10px 18px;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, #1ec8e7, #50d9ff);
+    color: #0f172a;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 0 10px #50d9ffcc;
+    user-select: none;
+    cursor: default;
+    white-space: nowrap;
+    animation-name: floatMove;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
 
-    /* Skills bubbles */
-    .bubble {
-      position: absolute;
-      background: #38bdf8cc;
-      color: #0f172a;
-      font-weight: 600;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      box-shadow:
-        0 0 6px #38bdf8bb,
-        inset 0 0 8px #7dd3fcaa;
-      user-select: none;
-      white-space: nowrap;
-      font-size: 1rem;
-      will-change: transform;
-      transition: box-shadow 0.3s ease;
-    }
-    .bubble:hover {
-      box-shadow:
-        0 0 15px #38bdf8ff,
-        inset 0 0 15px #7dd3fcff;
-      transform: scale(1.15);
-      z-index: 10;
-    }
+  /* Different animation durations and delays for bubbles */
+  .skill-bubble:nth-child(1) { top: 20%; left: 15%; animation-duration: 6s; animation-delay: 0s;}
+  .skill-bubble:nth-child(2) { top: 50%; left: 40%; animation-duration: 5.5s; animation-delay: 1s;}
+  .skill-bubble:nth-child(3) { top: 25%; left: 65%; animation-duration: 7s; animation-delay: 2s;}
+  .skill-bubble:nth-child(4) { top: 70%; left: 30%; animation-duration: 6.5s; animation-delay: 0.5s;}
+  .skill-bubble:nth-child(5) { top: 60%; left: 70%; animation-duration: 5s; animation-delay: 1.5s;}
+  .skill-bubble:nth-child(6) { top: 40%; left: 80%; animation-duration: 6.8s; animation-delay: 2.3s;}
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #94a3b8;
-      user-select: none;
+  @keyframes floatMove {
+    0%, 100% {
+      transform: translateY(0);
+      box-shadow: 0 0 10px #50d9ffcc;
+    }
+    50% {
+      transform: translateY(-15px);
+      box-shadow: 0 10px 20px #50d9ffee;
+    }
+  }
+
+  /* Projects styling */
+  #projects .project-card {
+    background: #1e2a44;
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 20px #1ec8e7aa;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  #projects .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 30px #50d9ffdd;
+  }
+  #projects .project-card h3 {
+    color: #50d9ff;
+    margin-bottom: 0.6rem;
+  }
+  #projects .project-card p {
+    color: #b1c7d6;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Volunteering & Languages & Goals */
+  #volunteering p,
+  #languages p,
+  #future-goals p {
+    max-width: 700px;
+    margin: 0.3rem auto 0.9rem;
+    color: #a0c4ff;
+    font-size: 1.05rem;
+  }
+
+  /* Contact form */
+  #contact form {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  #contact input, #contact textarea {
+    background: #142737;
+    border: none;
+    border-radius: 10px;
+    color: #e1e7ef;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    resize: vertical;
+    box-shadow: 0 0 10px #1ec8e740 inset;
+    transition: box-shadow 0.3s ease;
+  }
+  #contact input:focus, #contact textarea:focus {
+    outline: none;
+    box-shadow: 0 0 18px #1ec8e7cc inset;
+  }
+  #contact button {
+    background: #1ec8e7;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #0f172a;
+    box-shadow: 0 0 20px #50d9ff99;
+    transition: background 0.3s ease;
+  }
+  #contact button:hover {
+    background: #50d9ff;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    color: #50d9ff88;
+    font-weight: 600;
+    padding: 2rem 0 1rem;
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header h1 { font-size: 2rem; }
+    header img { width: 110px; height: 110px; }
+    nav.tabs {
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .skill-bubble {
       font-size: 0.9rem;
+      padding: 6px 14px;
     }
-
-    /* Contact form input styles */
-    input, textarea {
-      background: #1e293b;
-      border: 2px solid #2563eb;
-      color: #dbeafe;
-      border-radius: 0.5rem;
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      width: 100%;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      font-family: inherit;
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 10px #3b82f6aa;
-    }
-    button {
-      background-color: #2563eb;
-      color: #dbeafe;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.75rem;
-      font-weight: 700;
-      font-size: 1.125rem;
-      border: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      width: 100%;
-      max-width: 300px;
-      margin: 1rem auto 0;
-      display: block;
-    }
-    button:hover, button:focus {
-      background-color: #3b82f6;
-      box-shadow: 0 0 20px #3b82f6cc;
-      outline: none;
-    }
-
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-36 h-36 mx-auto rounded-full shadow-lg" />
-    <h1 class="text-5xl font-extrabold mt-6 text-blue-400">
-      <span id="typed"></span>
-    </h1>
-    <p class="mt-3 text-xl font-semibold text-blue-300">Building Secure, Real-Time, Impactful Tech</p>
-    <p class="mt-1 text-sm text-blue-400">📍 Dhaka, Bangladesh</p>
-    <nav class="mt-4 space-x-6" aria-label="Social links">
-      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer" tabindex="0">LinkedIn</a>
-      <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer" tabindex="0">X (Twitter)</a>
-      <a href="mailto:officehub.siyam@gmail.com" tabindex="0">Email</a>
-    </nav>
-  </header>
-
-  <!-- Tabs Navigation -->
-  <nav aria-label="Main tabs" role="tablist" tabindex="0">
-    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" id="tab-about" data-tab="about" tabindex="0">About</button>
-    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skills" id="tab-skills" data-tab="skills" tabindex="-1">Skills</button>
-    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" data-tab="projects" tabindex="-1">Projects</button>
-    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" data-tab="contact" tabindex="-1">Contact</button>
+<header>
+  <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" />
+  <h1>Md Syful Islam Siyam</h1>
+  <div class="typed-text" id="typed"></div>
+  <p class="subtitle">Building Secure & Real-Time Systems | Open to Global Opportunities | Dhaka, Bangladesh</p>
+  <nav class="social-links" aria-label="Social Media Links">
+    <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+    <a href="mailto:officehub.siyam@gmail.com">Email</a>
   </nav>
+</header>
 
-  <!-- Tab Content -->
-  <main class="tab-content" tabindex="0" aria-live="polite">
-    <section id="about" class="active" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
-      <h2>Who Am I?</h2>
-      <p class="text-lg leading-relaxed max-w-xl mx-auto">
-        I'm <strong>Md Syful Islam Siyam</strong>, a CSE student with a deep passion for real-time systems, ethical hacking, and crafting secure digital infrastructure. I strive to combine technical mastery with real-world impact.
-      </p>
-    </section>
+<nav class="tabs" role="tablist" aria-label="Portfolio Sections Tabs">
+  <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" id="tab-about" tabindex="0">About</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skills" id="tab-skills" tabindex="-1">Skills</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" tabindex="-1">Projects</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="volunteering" id="tab-volunteering" tabindex="-1">Volunteering</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="languages" id="tab-languages" tabindex="-1">Languages</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="future-goals" id="tab-future-goals" tabindex="-1">Future Goals</button>
+  <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" tabindex="-1">Contact</button>
+</nav>
 
-    <section id="skills" role="tabpanel" aria-labelledby="tab-skills" tabindex="0">
-      <h2>Skills</h2>
-      <div id="skills-bubbles" aria-label="Floating skill bubbles"></div>
-    </section>
+<main class="tab-content">
 
-    <section id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
-      <h2>💼 My Projects</h2>
-      <ul class="space-y-6 list-disc list-inside max-w-xl mx-auto text-lg">
-        <li><strong>Real-Time Bus Tracker</strong>: Live GPS tracking system built using embedded C & microcontrollers.</li>
-        <li><strong>Portfolio Website</strong>: Modern, animated portfolio built with Tailwind CSS & JS frameworks.</li>
-        <li><strong>Cybersecurity Toolkit</strong>: Python tools for ethical hacking, port scanning & packet inspection.</li>
-      </ul>
-    </section>
+  <section id="about" role="tabpanel" aria-labelledby="tab-about" tabindex="0" class="active">
+    <p>
+      I'm <strong>Md Syful Islam Siyam</strong>, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web development. Preparing for an MSc in Cybersecurity, I focus on building secure and efficient technology.
+    </p>
+    <p>
+      Skilled in C, C++, Python, HTML, CSS, and JavaScript. I value clean code, scalable design, and ethical hacking. I enjoy solving real-world problems and collaborating on impactful projects.
+    </p>
+  </section>
 
-    <section id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
-      <h2>📬 Let's Connect</h2>
-      <form action="https://formspree.io/f/mayvnvyl" method="POST" class="max-w-lg mx-auto space-y-4">
-        <input name="name" type="text" required placeholder="Your Name" aria-label="Your Name" />
-        <input name="email" type="email" required placeholder="Your Email" aria-label="Your Email" />
-        <textarea name="message" rows="5" required placeholder="Your Message" aria-label="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </section>
-  </main>
+  <section id="skills" role="tabpanel" aria-labelledby="tab-skills" tabindex="0">
+    <!-- Floating skill bubbles -->
+    <div class="skill-bubble">C</div>
+    <div class="skill-bubble">C++</div>
+    <div class="skill-bubble">Python</div>
+    <div class="skill-bubble">HTML</div>
+    <div class="skill-bubble">CSS</div>
+    <div class="skill-bubble">JavaScript</div>
+    <div class="skill-bubble">Cybersecurity</div>
+    <div class="skill-bubble">Real-Time Systems</div>
+    <div class="skill-bubble">Clean Code</div>
+    <div class="skill-bubble">Scalable Design</div>
+  </section>
 
-  <footer>
-    &copy; 2025 Md Syful Islam Siyam | Made with ❤️ and clean code
-  </footer>
+  <section id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
+    <div class="project-card" tabindex="0">
+      <h3>🚍 Real-Time Bus Tracker</h3>
+      <p>Live GPS tracking system with embedded C & microcontrollers for fast, reliable transit updates.</p>
+    </div>
+    <div class="project-card" tabindex="0">
+      <h3>🌐 Portfolio Website</h3>
+      <p>Animated portfolio showcasing skills and projects using modern web technologies.</p>
+    </div>
+    <div class="project-card" tabindex="0">
+      <h3>🔐 Cybersecurity Toolkit</h3>
+      <p>Python-based ethical hacking tools for port scanning and packet inspection.</p>
+    </div>
+  </section>
 
-  <script>
-    // Typed.js header animation
-    const typed = new Typed('#typed', {
-      strings: [
-        'Md Syful Islam Siyam',
-        'CSE Studen
+  <section id="volunteering" role="tabpanel" aria-labelledby="tab-volunteering" tabindex="0">
+    <p><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</p>
+    <p><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</p>
+  </section>
+
+  <section id="languages" role="tabpanel" aria-labelledby="tab-languages" tabindex="0">
+    <p>Bangla - Native or bilingual proficiency</p>
+    <p>English - Professional working proficiency</p>
+    <p>Hindi - Limited working proficiency</p>
+  </section>
+
+  <section id="future-goals" role="tabpanel" aria-labelledby="tab-future-goals" tabindex="0">
+    <p>
+      My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity,
+      real-time embedded systems, and cloud infrastructure to build scalable and secure systems that impact lives.
+    </p>
+  </section>
+
+  <section id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
+    <form action="https://formspree.io/f/mayvnvyl" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+      <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  &copy; 2025 Md Syful Islam Siyam | Made with 💙 and clean code
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  // Typed.js for header animated roles
+  new Typed('#typed', {
+    strings: [
+      'CSE Student',
+      'Cybersecurity Enthusiast',
+      'Web App Developer',
+      'Real-Time Systems Lover',
+      'Ethical Hacker'
+    ],
+    typeSpeed: 60,
+    backSpeed: 30,
+    backDelay: 2000,
+    loop: true
+  });
+
+  // Tab logic
+  const tabs = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.tab-content > section');
+
+  function activateTab(index) {
+    tabs.forEach((tab, i) => {
+      const selected = i === index;
+      tab.classList.toggle('active', selected);
+      tab.setAttribute('aria-selected', selected);
+      tab.setAttribute('tabindex', selected ? '0' : '-1');
+      panels[i].classList.toggle('active', selected);
+    });
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      activateTab(i);
+      tabs[i].focus();
+    });
+    tab.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        let newIndex = i + (e.key === 'ArrowRight' ? 1 : -1);
+        if (newIndex < 0) newIndex = tabs.length - 1;
+        if (newIndex >= tabs.length) newIndex = 0;
+        activateTab(newIndex);
+        tabs[newIndex].focus();
+      }
+    });
+  });
+
+  activateTab(0);
+</script>
+
+</body>
+</html>

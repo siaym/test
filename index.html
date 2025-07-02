@@ -1,160 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Md Syful Islam Siyam | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .glow-text {
+      text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    }
+    .hero-animated {
+      background: radial-gradient(circle at 20% 30%, #3b82f6 0%, #1e3a8a 100%);
+      animation: gradientMove 10s ease infinite;
+      background-size: 400% 400%;
+      position: relative;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .dark-mode {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    .toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1e3a8a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+    .bubble {
+      position: absolute;
+      border-radius: 50%;
+      background-color: rgba(59, 130, 246, 0.6);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      padding: 0.5rem 1rem;
+      animation: float 10s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(10deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+  </style>
 </head>
-<body>
-  <canvas id="particles-bg"></canvas>
-  <header>
-    <div class="launch-badge">PORTFOLIO LAUNCH</div>
-    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" />
-    <h1>Md Syful Islam Siyam</h1>
-    <div class="typed-text" id="typed"></div>
-    <p class="subtitle">
-      Building Secure & Real-Time Systems | Open to Global Opportunities | Dhaka, Bangladesh
-    </p>
-    <nav class="social-links" aria-label="Social Media Links">
-      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
-      <a href="mailto:officehub.siyam@gmail.com">Email</a>
-    </nav>
-    <a href="#contact" class="cta-button">Contact Me</a>
+
+<body class="bg-gray-100 text-gray-900 font-sans transition-colors duration-500">
+  <div class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</div>
+
+  <header class="hero-animated text-white py-24 text-center relative overflow-hidden">
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-32 h-32 mx-auto rounded-full border-4 border-white shadow-xl mb-4 z-10 relative">
+    <h1 class="text-5xl font-extrabold glow-text z-10 relative" id="typed"></h1>
+    <p class="mt-4 text-lg z-10 relative">Building Secure, Real-Time, Impactful Tech</p>
+    <p class="text-sm mt-1 z-10 relative">📍 Dhaka, Bangladesh</p>
+    <div class="mt-6 space-x-4 z-10 relative">
+      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" class="text-blue-100 hover:underline">LinkedIn</a>
+      <a href="https://twitter.com/siyamx360" target="_blank" class="text-blue-100 hover:underline">X</a>
+      <a href="mailto:officehub.siyam@gmail.com" class="text-blue-100 hover:underline">Email</a>
+    </div>
+    <div class="mt-8 animate-bounce text-2xl z-10 relative">⬇</div>
   </header>
-  <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm Md Syful Islam Siyam, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web development. Preparing for an MSc in Cybersecurity, I focus on building secure and efficient technology.
-      </p>
-      <p>
-        Skilled in C, C++, Python, HTML, CSS, and JavaScript. I value clean code, scalable design, and ethical hacking. I enjoy solving real-world problems and collaborating on impactful projects.
-      </p>
-    </section>
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>C, C++</li>
-        <li>Python</li>
-        <li>HTML, CSS, JavaScript</li>
-        <li>Cybersecurity</li>
-        <li>Real-Time Systems</li>
-        <li>Clean Code & Scalable Design</li>
-      </ul>
-      <div class="skill-bar">
-        <div class="skill-label"><span>C & C++</span><span>90%</span></div>
-        <div class="bar-outer"><div class="bar-inner fill90"></div></div>
-        <div class="skill-label"><span>Python</span><span>85%</span></div>
-        <div class="bar-outer"><div class="bar-inner fill85"></div></div>
-        <div class="skill-label"><span>HTML, CSS, JS</span><span>88%</span></div>
-        <div class="bar-outer"><div class="bar-inner fill88"></div></div>
-        <div class="skill-label"><span>Cybersecurity</span><span>80%</span></div>
-        <div class="bar-outer"><div class="bar-inner fill80"></div></div>
+
+  <section class="max-w-5xl mx-auto px-6 py-20" id="about" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6 text-blue-800 dark:text-blue-300">Who Am I?</h2>
+    <p class="leading-relaxed text-lg">I'm <strong>Md Syful Islam Siyam</strong>, a CSE student with a deep passion for real-time systems, ethical hacking, and crafting secure digital infrastructure. I strive to combine technical mastery with real-world impact.</p>
+  </section>
+
+  <section class="relative max-w-5xl mx-auto px-6 py-32 overflow-hidden" id="skills" data-aos="fade-up">
+    <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-300 mb-8 text-center">🎈 My Floating Skills</h2>
+    <div class="relative h-64 w-full">
+      <div class="bubble" style="top:10%; left:10%;">C</div>
+      <div class="bubble" style="top:20%; left:60%;">C++</div>
+      <div class="bubble" style="top:50%; left:30%;">Python</div>
+      <div class="bubble" style="top:40%; left:70%;">HTML</div>
+      <div class="bubble" style="top:65%; left:15%;">CSS</div>
+      <div class="bubble" style="top:75%; left:55%;">JavaScript</div>
+      <div class="bubble" style="top:30%; left:80%;">Cybersecurity</div>
+      <div class="bubble" style="top:10%; left:45%;">Real-Time Systems</div>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-tr from-white to-blue-50 dark:from-gray-800 dark:to-gray-900 py-20 px-6" id="projects" data-aos="zoom-in-up">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-300 mb-10">💼 My Projects</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
+          <h3 class="text-2xl font-semibold mb-2">🚍 Real-Time Bus Tracker</h3>
+          <p class="text-gray-700 dark:text-gray-300">Live GPS tracking system built using embedded C & microcontrollers.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
+          <h3 class="text-2xl font-semibold mb-2">🌐 Portfolio Website</h3>
+          <p class="text-gray-700 dark:text-gray-300">Modern, animated portfolio built with Tailwind CSS & JS frameworks.</p>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-2xl hover:scale-105 transition-transform duration-500">
+          <h3 class="text-2xl font-semibold mb-2">🔐 Cybersecurity Toolkit</h3>
+          <p class="text-gray-700 dark:text-gray-300">Python tools for ethical hacking, port scanning & packet inspection.</p>
+        </div>
       </div>
-    </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card" tabindex="0">
-          <h3>🚍 Real-Time Bus Tracker</h3>
-          <p>Live GPS tracking system with embedded C & microcontrollers for fast, reliable transit updates.</p>
-        </article>
-        <article class="project-card" tabindex="0">
-          <h3>🌐 Portfolio Website</h3>
-          <p>Animated portfolio showcasing skills and projects using modern web technologies.</p>
-        </article>
-        <article class="project-card" tabindex="0">
-          <h3>🔐 Cybersecurity Toolkit</h3>
-          <p>Python-based ethical hacking tools for port scanning and packet inspection.</p>
-        </article>
-      </div>
-    </section>
-    <section id="volunteering">
-      <h2>Volunteering</h2>
-      <p><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</p>
-      <p><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</p>
-    </section>
-    <section id="languages">
-      <h2>Languages</h2>
-      <p>Bangla - Native or bilingual proficiency</p>
-      <p>English - Professional working proficiency</p>
-      <p>Hindi - Limited working proficiency</p>
-    </section>
-    <section id="future-goals">
-      <h2>Future Goals</h2>
-      <p>
-        My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity,
-        real-time embedded systems, and cloud infrastructure to build scalable and secure systems that impact lives.
-      </p>
-    </section>
-    <section id="contact">
-      <h2>Contact Me</h2>
-      <form action="https://formspree.io/f/mayvnvyl" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
-        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+    </div>
+  </section>
+
+  <section class="bg-gradient-to-br from-blue-100 to-white dark:from-gray-800 dark:to-gray-900 py-20 px-6" id="contact" data-aos="fade-up">
+    <div class="max-w-lg mx-auto text-center">
+      <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-300 mb-6">📬 Let's Connect</h2>
+      <form action="https://formspree.io/f/mayvnvyl" method="POST" class="space-y-4">
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border border-blue-200 px-4 py-2 rounded-lg">
+        <input type="email" name="email" placeholder="Your Email" required class="w-full border border-blue-200 px-4 py-2 rounded-lg">
+        <textarea name="message" rows="4" placeholder="Your Message" required class="w-full border border-blue-200 px-4 py-2 rounded-lg"></textarea>
+        <button type="submit" class="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition">Send Message</button>
       </form>
-    </section>
-  </main>
-  <footer>
-    &copy; 2025 Md Syful Islam Siyam | Made with 💙 and clean code
+    </div>
+  </section>
+
+  <footer class="bg-blue-900 text-white py-8 text-center">
+    <p>&copy; 2025 Md Syful Islam Siyam. Made with ❤️ and clean code.</p>
   </footer>
+
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var typed = new Typed('#typed', {
-        strings: [
-          'CSE Student',
-          'Cybersecurity Enthusiast',
-          'Web App Developer',
-          'Real-Time Systems Lover',
-          'Ethical Hacker'
-        ],
-        typeSpeed: 60,
-        backSpeed: 30,
-        backDelay: 2000,
-        loop: true
-      });
-      setTimeout(() => document.body.classList.add('loaded'), 100);
+    AOS.init();
+    new Typed("#typed", {
+      strings: ["Md Syful Islam Siyam", "CSE Student", "Cybersecurity Enthusiast", "Web App Developer"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
     });
-    // Particles background
-    const canvas = document.getElementById("particles-bg");
-    const ctx = canvas.getContext("2d");
-    let w, h, particles = [];
-    function resize() {
-      w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
     }
-    window.addEventListener("resize", resize);
-    resize();
-    for(let i=0; i<60; i++) {
-      particles.push({
-        x: Math.random()*w,
-        y: Math.random()*h,
-        r: Math.random()*1.5+0.5,
-        dx: (Math.random()-0.5)*0.5,
-        dy: (Math.random()-0.5)*0.5
-      });
-    }
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = "rgba(40,200,255,0.13)";
-      for(let p of particles){
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
-        ctx.fill();
-        p.x += p.dx;
-        p.y += p.dy;
-        if(p.x < 0 || p.x > w) p.dx *= -1;
-        if(p.y < 0 || p.y > h) p.dy *= -1;
-      }
-      requestAnimationFrame(draw);
-    }
-    draw();
   </script>
 </body>
+
 </html>

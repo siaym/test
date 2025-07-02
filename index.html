@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -316,6 +315,26 @@
       line-height: 1.5;
     }
   
+    /* Education tab */
+    #education ul {
+      max-width: 720px;
+      margin: 0 auto;
+      list-style: none;
+      color: #add8ff;
+    }
+    #education li {
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      background: rgba(20, 39, 55, 0.6);
+      padding: 1rem 1.3rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #1ec8e7aa;
+    }
+    #education li strong {
+      color: #50d9ff;
+      font-weight: 700;
+    }
+  
     /* Contact form */
     #contact form {
       max-width: 480px;
@@ -407,35 +426,33 @@
       <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" id="tab-about" tabindex="0">About</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skills" id="tab-skills" tabindex="-1">Skills</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" tabindex="-1">Projects</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="education" id="tab-education" tabindex="-1">Education</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="volunteering" id="tab-volunteering" tabindex="-1">Volunteering</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="languages" id="tab-languages" tabindex="-1">Languages</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="future-goals" id="tab-future-goals" tabindex="-1">Future Goals</button>
       <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" tabindex="-1">Contact</button>
     </nav>
   
-    <main class="tab-content">
-  
+    <div class="tab-content">
       <section id="about" role="tabpanel" aria-labelledby="tab-about" tabindex="0" class="active">
-        <p>
-          I'm <strong>Md Syful Islam Siyam</strong>, a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and web development. Preparing for an MSc in Cybersecurity, I focus on building secure and efficient technology.
-        </p>
-        <p>
-          Skilled in C, C++, Python, HTML, CSS, and JavaScript. I value clean code, scalable design, and ethical hacking. I enjoy solving real-world problems and collaborating on impactful projects.
-        </p>
+        <p>Hello! I’m <strong>Md Syful Islam Siyam</strong>, a passionate CSE student focused on real-time systems, cybersecurity, and web development. I aim to build secure, impactful technology that scales globally and helps people.</p>
+        <p>I’m committed to clean, maintainable code, and always eager to learn new technologies to enhance my skills and deliver professional solutions.</p>
       </section>
   
       <section id="skills" role="tabpanel" aria-labelledby="tab-skills" tabindex="0">
-        <!-- Floating skill bubbles -->
-        <div class="skill-bubble">C</div>
-        <div class="skill-bubble">C++</div>
-        <div class="skill-bubble">Python</div>
-        <div class="skill-bubble">HTML</div>
-        <div class="skill-bubble">CSS</div>
-        <div class="skill-bubble">JavaScript</div>
-        <div class="skill-bubble">Cybersecurity</div>
-        <div class="skill-bubble">Real-Time Systems</div>
-        <div class="skill-bubble">Clean Code</div>
-        <div class="skill-bubble">Scalable Design</div>
+        <div id="skills-container" aria-label="Skill bubbles" style="position: relative; height: 320px;">
+          <div class="skill-bubble" style="top: 15%; left: 10%;">C</div>
+          <div class="skill-bubble" style="top: 50%; left: 30%;">C++</div>
+          <div class="skill-bubble" style="top: 20%; left: 65%;">Python</div>
+          <div class="skill-bubble" style="top: 65%; left: 25%;">HTML</div>
+          <div class="skill-bubble" style="top: 60%; left: 68%;">CSS</div>
+          <div class="skill-bubble" style="top: 40%; left: 80%;">JavaScript</div>
+          <div class="skill-bubble" style="top: 40%; left: 45%;">Cybersecurity</div>
+          <div class="skill-bubble" style="top: 25%; left: 35%;">Real-Time Systems</div>
+          <div class="skill-bubble" style="top: 50%; left: 75%;">Clean Code</div>
+          <div class="skill-bubble" style="top: 70%; left: 55%;">Scalable Design</div>
+          <!-- Add more skill bubbles or animate these as you like -->
+        </div>
       </section>
   
       <section id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
@@ -453,34 +470,41 @@
         </div>
       </section>
   
+      <section id="education" role="tabpanel" aria-labelledby="tab-education" tabindex="0">
+        <ul>
+          <li><strong>Daffodil International University</strong> – B.Sc. in Computer Science & Engineering (CSE) [Ongoing]</li>
+          <li><strong>BIRSHRESTHO Noor Mohammad Public School and College</strong> – Higher Secondary Certificate (HSC), GPA 5.00</li>
+          <li><strong>Other certifications & courses</strong> – Planned and ongoing in cybersecurity, embedded systems, and cloud technologies.</li>
+        </ul>
+      </section>
+  
       <section id="volunteering" role="tabpanel" aria-labelledby="tab-volunteering" tabindex="0">
-        <p><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</p>
-        <p><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</p>
+        <p><strong>Bangladesh Red Crescent Society (BDRCS)</strong> – Disaster and humanitarian relief volunteer</p>
+        <p><strong>Youth Action For Social Development (YASD)</strong> – Environmental and social projects volunteer</p>
       </section>
   
       <section id="languages" role="tabpanel" aria-labelledby="tab-languages" tabindex="0">
-        <p>Bangla - Native or bilingual proficiency</p>
-        <p>English - Professional working proficiency</p>
-        <p>Hindi - Limited working proficiency</p>
+        <p>Bangla – Native or bilingual proficiency</p>
+        <p>English – Professional working proficiency</p>
+        <p>Hindi – Limited working proficiency</p>
       </section>
   
       <section id="future-goals" role="tabpanel" aria-labelledby="tab-future-goals" tabindex="0">
         <p>
-          My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity,
-          real-time embedded systems, and cloud infrastructure to build scalable and secure systems that impact lives.
+          I aim to become a globally recognized cybersecurity expert and system architect.  
+          I plan to deepen my expertise in advanced cybersecurity, real-time embedded systems, and cloud infrastructure to build scalable and secure systems that positively impact lives.
         </p>
       </section>
   
       <section id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
-        <form action="https://formspree.io/f/mayvnvyl" method="POST">
+        <form action="https://formspree.io/f/mayvnvyl" method="POST" aria-label="Contact form">
           <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
           <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
           <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
         </form>
       </section>
-  
-    </main>
+    </div>
   
     <footer>
       &copy; 2025 Md Syful Islam Siyam | Made with 💙 and clean code
@@ -489,7 +513,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    // Typed.js for header animated roles
+    // Typed.js animation for roles
     new Typed('#typed', {
       strings: [
         'CSE Student',
@@ -498,13 +522,13 @@
         'Real-Time Systems Lover',
         'Ethical Hacker'
       ],
-      typeSpeed: 60,
-      backSpeed: 30,
-      backDelay: 2000,
+      typeSpeed: 55,
+      backSpeed: 35,
+      backDelay: 1700,
       loop: true
     });
   
-    // Tab logic with keyboard support
+    // Tabs logic with accessibility & keyboard navigation support
     const tabs = document.querySelectorAll('.tab-btn');
     const panels = document.querySelectorAll('.tab-content > section');
   
@@ -523,7 +547,7 @@
         activateTab(i);
         tabs[i].focus();
       });
-      tab.addEventListener('keydown', e => {
+      tab.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
           e.preventDefault();
           let newIndex = i + (e.key === 'ArrowRight' ? 1 : -1);

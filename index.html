@@ -2,10 +2,201 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>My GitHub Pages Site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Md Syful Islam Siyam | Legendary Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Typed.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>Hello, GitHub Pages!</h1>
-  <p>My website is live!</p>
+
+  <canvas id="particles-bg"></canvas>
+
+  <header>
+    <div class="launch-badge">NOW LAUNCHING</div>
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" />
+    <h1>Md Syful Islam Siyam</h1>
+    <div class="typed-text" id="typed"></div>
+    <p class="subtitle">
+      Building Real-Time & Secure Systems | Open to Global Opportunities | Dhaka, Bangladesh
+    </p>
+    <nav class="social-links" aria-label="Social Media Links">
+      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">LinkedIn</a>
+      <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer" aria-label="Twitter Profile">X (Twitter)</a>
+      <a href="mailto:officehub.siyam@gmail.com" aria-label="Email">Email</a>
+    </nav>
+    <a href="#contact" class="cta-button" aria-label="Contact Me Button">Contact Me</a>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I'm Md Syful Islam Siyam, a Computer Science and Engineering student deeply passionate about cybersecurity, real-time systems, and web application development.
+        Currently preparing for an MSc in Cybersecurity, I aim to build secure, efficient, and meaningful technology.
+      </p>
+      <p>
+        Skilled in C, C++, Python, HTML, CSS, and JavaScript, I emphasize clean code, scalable system design, and ethical hacking.
+        I enjoy solving real-world problems with technology and collaborating on impactful projects.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <ul class="skills-list" aria-label="Skills list">
+        <li>C, C++</li>
+        <li>Python</li>
+        <li>HTML, CSS, JavaScript</li>
+        <li>Cybersecurity</li>
+        <li>Real-Time Systems</li>
+        <li>Clean Code & Scalable Design</li>
+      </ul>
+      <div class="skill-bar" aria-label="Skill proficiency bars">
+        <div class="skill-label">
+          <span>C & C++</span><span>90%</span>
+        </div>
+        <div class="bar-outer">
+          <div class="bar-inner fill90"></div>
+        </div>
+        <div class="skill-label">
+          <span>Python</span><span>85%</span>
+        </div>
+        <div class="bar-outer">
+          <div class="bar-inner fill85"></div>
+        </div>
+        <div class="skill-label">
+          <span>HTML, CSS, JS</span><span>88%</span>
+        </div>
+        <div class="bar-outer">
+          <div class="bar-inner fill88"></div>
+        </div>
+        <div class="skill-label">
+          <span>Cybersecurity</span><span>80%</span>
+        </div>
+        <div class="bar-outer">
+          <div class="bar-inner fill80"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" tabindex="0" aria-label="Project Real-Time Bus Tracker">
+          <h3>🚍 Real-Time Bus Tracker</h3>
+          <p>Live GPS tracking system built with embedded C & microcontrollers for fast and reliable transit updates.</p>
+        </article>
+        <article class="project-card" tabindex="0" aria-label="Project Portfolio Website">
+          <h3>🌐 Portfolio Website</h3>
+          <p>Modern, animated portfolio showcasing skills, projects, and professional background using Tailwind CSS and JS.</p>
+        </article>
+        <article class="project-card" tabindex="0" aria-label="Project Cybersecurity Toolkit">
+          <h3>🔐 Cybersecurity Toolkit</h3>
+          <p>Python-based ethical hacking tools, including port scanning and packet inspection utilities for security assessments.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="volunteering">
+      <h2>Volunteering</h2>
+      <p><strong>Bangladesh Red Crescent Society (BDRCS)</strong> - Disaster and Humanitarian Relief</p>
+      <p><strong>Youth Action For Social Development (YASD)</strong> - Environmental Projects</p>
+    </section>
+
+    <section id="languages">
+      <h2>Languages</h2>
+      <p>Bangla - Native or bilingual proficiency</p>
+      <p>English - Professional working proficiency</p>
+      <p>Hindi - Limited working proficiency</p>
+    </section>
+
+    <section id="future-goals">
+      <h2>Future Goals</h2>
+      <p>
+        My aim is to become a globally recognized cybersecurity expert and system architect. I plan to deepen my knowledge in advanced cybersecurity,
+        real-time embedded systems, and cloud infrastructure to build scalable and secure systems that impact lives.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <form action="https://formspree.io/f/mayvnvyl" method="POST" aria-label="Contact form">
+        <input type="text" name="name" placeholder="Your Name" required autocomplete="name" />
+        <input type="email" name="email" placeholder="Your Email" required autocomplete="email" />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" aria-label="Send message button">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Md Syful Islam Siyam | Made with 💙 and clean code
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var typed = new Typed('#typed', {
+        strings: [
+          'CSE Student',
+          'Cybersecurity Enthusiast',
+          'Web App Developer',
+          'Real-Time Systems Lover',
+          'Ethical Hacker'
+        ],
+        typeSpeed: 60,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+      });
+
+      // Fade in body for smooth entrance
+      setTimeout(() => document.body.classList.add('loaded'), 100);
+    });
+
+    // Particles background script
+    const canvas = document.getElementById("particles-bg");
+    const ctx = canvas.getContext("2d");
+    let w, h, particles = [];
+
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    for(let i=0; i<80; i++) {
+      particles.push({
+        x: Math.random()*w,
+        y: Math.random()*h,
+        r: Math.random()*2+1,
+        dx: (Math.random()-0.5)*0.8,
+        dy: (Math.random()-0.5)*0.8
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = "#00fff9";
+      for(let p of particles){
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, 2*Math.PI);
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+        if(p.x < 0 || p.x > w) p.dx *= -1;
+        if(p.y < 0 || p.y > h) p.dy *= -1;
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+
 </body>
 </html>

@@ -1,13 +1,89 @@
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Syful Islam Siyam | Legendary Portfolio</title>
+  <title>Md Syful Islam Siyam | Legendary Portfolio (Dark Mode)</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <style>
-    /* Floating bubbles container */
+    /* Always dark mode */
+    body {
+      background-color: #0f172a;
+      color: #cbd5e1;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    a {
+      color: #7dd3fc;
+      transition: color 0.2s ease;
+    }
+    a:hover, a:focus {
+      color: #38bdf8;
+      outline: none;
+    }
+    header {
+      background: #1e293b;
+      box-shadow: 0 0 30px #38bdf8aa;
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+    }
+    header img {
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 15px #38bdf8cc;
+      border-radius: 9999px;
+    }
+    /* Tab buttons container */
+    nav[aria-label="Main tabs"] {
+      display: flex;
+      justify-content: center;
+      margin-top: 3rem;
+      gap: 1.5rem;
+    }
+    /* Tab buttons */
+    .tab-btn {
+      cursor: pointer;
+      padding: 0.5rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      border-bottom: 3px solid transparent;
+      color: #7dd3fc;
+      background: transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
+      border-radius: 0.5rem 0.5rem 0 0;
+      user-select: none;
+    }
+    .tab-btn:hover,
+    .tab-btn:focus-visible {
+      color: #38bdf8;
+      outline-offset: 4px;
+      outline: 2px solid #38bdf8aa;
+      outline-radius: 0.5rem;
+    }
+    .tab-btn.active {
+      border-bottom-color: #38bdf8;
+      color: #38bdf8;
+      font-weight: 700;
+      box-shadow: inset 0 -3px 6px #38bdf8bb;
+    }
+    /* Tab content */
+    .tab-content > section {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      max-width: 720px;
+      margin: 2rem auto 4rem;
+    }
+    .tab-content > section.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Skills bubbles */
     #skills-bubbles {
       position: relative;
       height: 300px;
@@ -16,8 +92,9 @@
       overflow: hidden;
       box-shadow: 0 0 30px #38bdf8aa;
       cursor: default;
+      margin: 0 auto;
+      max-width: 720px;
     }
-    /* Each bubble style */
     .bubble {
       position: absolute;
       background: #38bdf8cc;
@@ -42,117 +119,80 @@
       z-index: 10;
     }
 
-    /* Tabs container */
-    .tab-content > div {
-      display: none;
-      animation: fadeSlideIn 0.6s ease forwards;
-    }
-    .tab-content > div.active {
-      display: block;
-    }
-
-    @keyframes fadeSlideIn {
-      0% { opacity: 0; transform: translateY(10px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Dark mode */
-    body.dark {
-      background-color: #0f172a;
-      color: #cbd5e1;
-    }
-    body.dark a {
-      color: #7dd3fc;
-    }
-    body.dark header {
-      background: #1e293b;
-      box-shadow: 0 0 30px #38bdf8aa;
-    }
-    /* Tab button active */
-    .tab-btn {
-      @apply cursor-pointer px-4 py-2 font-semibold rounded-lg transition-colors duration-300;
-    }
-    .tab-btn.active {
-      background-color: #38bdf8;
-      color: #0f172a;
-      box-shadow: 0 0 8px #38bdf8cc;
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #94a3b8;
+      user-select: none;
+      font-size: 0.9rem;
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900 font-sans transition-colors duration-500">
-  <!-- Dark Mode Toggle -->
-  <button id="darkToggle" 
-    class="fixed bottom-6 right-6 bg-blue-500 hover:bg-blue-600 text-white px-5 py-3 rounded-full shadow-lg focus:outline-none z-50" 
-    aria-label="Toggle Dark Mode" title="Toggle Dark Mode">🌙</button>
+<body>
 
   <!-- Header -->
-  <header class="text-center py-16 bg-white shadow-md dark:bg-[#1e293b] dark:text-coolGray-200">
-    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="mx-auto w-36 h-36 rounded-full border-4 border-blue-400 shadow-lg" />
-    <h1 class="text-5xl font-extrabold mt-6 text-blue-600 dark:text-sky-400">
+  <header>
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="w-36 h-36 mx-auto rounded-full shadow-lg" />
+    <h1 class="text-5xl font-extrabold mt-6 text-blue-400">
       <span id="typed"></span>
     </h1>
-    <p class="mt-3 text-xl font-semibold text-gray-700 dark:text-slate-300">Building Secure, Real-Time, Impactful Tech</p>
-    <p class="mt-1 text-sm text-gray-500 dark:text-slate-400">📍 Dhaka, Bangladesh</p>
-    <nav class="mt-4 space-x-6">
-      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-sky-400 dark:hover:text-sky-600">LinkedIn</a>
-      <a href="https://twitter.com/siyamx360" target="_blank" class="text-blue-600 hover:text-blue-800 dark:text-sky-400 dark:hover:text-sky-600">X (Twitter)</a>
-      <a href="mailto:officehub.siyam@gmail.com" class="text-blue-600 hover:text-blue-800 dark:text-sky-400 dark:hover:text-sky-600">Email</a>
+    <p class="mt-3 text-xl font-semibold text-blue-300">Building Secure, Real-Time, Impactful Tech</p>
+    <p class="mt-1 text-sm text-blue-400">📍 Dhaka, Bangladesh</p>
+    <nav class="mt-4 space-x-6" aria-label="Social links">
+      <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer" tabindex="0">LinkedIn</a>
+      <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer" tabindex="0">X (Twitter)</a>
+      <a href="mailto:officehub.siyam@gmail.com" tabindex="0">Email</a>
     </nav>
   </header>
 
   <!-- Tabs Navigation -->
-  <nav class="flex justify-center mt-12 space-x-6" aria-label="Main tabs">
-    <button class="tab-btn active" data-tab="about" aria-selected="true" role="tab" id="tab-about">About</button>
-    <button class="tab-btn" data-tab="skills" aria-selected="false" role="tab" id="tab-skills">Skills</button>
-    <button class="tab-btn" data-tab="projects" aria-selected="false" role="tab" id="tab-projects">Projects</button>
-    <button class="tab-btn" data-tab="contact" aria-selected="false" role="tab" id="tab-contact">Contact</button>
+  <nav aria-label="Main tabs" role="tablist" tabindex="0">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" id="tab-about" data-tab="about" tabindex="0">About</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skills" id="tab-skills" data-tab="skills" tabindex="-1">Skills</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" data-tab="projects" tabindex="-1">Projects</button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" data-tab="contact" tabindex="-1">Contact</button>
   </nav>
 
   <!-- Tab Content -->
-  <main class="max-w-5xl mx-auto p-6">
-    <!-- About -->
-    <section id="about" class="tab-content active" role="tabpanel" aria-labelledby="tab-about">
-      <h2 class="text-4xl font-bold mb-6 text-blue-600 dark:text-sky-400">Who Am I?</h2>
-      <p class="text-lg leading-relaxed text-gray-700 dark:text-slate-300">
-        I'm <strong>Md Syful Islam Siyam</strong>, a CSE student with a passion for real-time systems, ethical hacking, and building secure digital infrastructures.
+  <main class="tab-content" tabindex="0">
+    <section id="about" class="active" role="tabpanel" aria-labelledby="tab-about" tabindex="0">
+      <h2 class="text-4xl font-bold mb-6 text-blue-400">Who Am I?</h2>
+      <p class="text-lg leading-relaxed max-w-xl mx-auto">
+        I'm <strong>Md Syful Islam Siyam</strong>, a CSE student passionate about real-time systems, ethical hacking, and building secure digital infrastructures.
         Preparing for MSc in Cybersecurity, I love merging deep technical skills with meaningful impact.
       </p>
     </section>
 
-    <!-- Skills -->
-    <section id="skills" class="tab-content" role="tabpanel" aria-labelledby="tab-skills">
-      <h2 class="text-4xl font-bold mb-8 text-blue-600 dark:text-sky-400">Skills</h2>
-      <div id="skills-bubbles" aria-label="Floating skill bubbles">
-        <!-- Bubbles inserted by JS -->
-      </div>
-      <p class="mt-6 text-gray-700 dark:text-slate-300 max-w-3xl mx-auto text-center">
+    <section id="skills" role="tabpanel" aria-labelledby="tab-skills" tabindex="0">
+      <h2 class="text-4xl font-bold mb-8 text-blue-400 text-center">Skills</h2>
+      <div id="skills-bubbles" aria-label="Floating skill bubbles"></div>
+      <p class="mt-6 text-gray-300 max-w-xl mx-auto text-center">
         These are my core skills — always growing and evolving with every project I take on.
       </p>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="tab-content" role="tabpanel" aria-labelledby="tab-projects">
-      <h2 class="text-4xl font-bold mb-6 text-blue-600 dark:text-sky-400">Projects</h2>
-      <ul class="space-y-6 list-disc list-inside text-gray-700 dark:text-slate-300 text-lg max-w-3xl mx-auto">
+    <section id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
+      <h2 class="text-4xl font-bold mb-6 text-blue-400 text-center">Projects</h2>
+      <ul class="space-y-6 list-disc list-inside text-gray-300 text-lg max-w-xl mx-auto">
         <li><strong>Real-Time Bus Tracker</strong>: Embedded C + microcontrollers delivering live GPS transit updates.</li>
         <li><strong>Portfolio Website</strong>: Modern, animated web portfolio using Tailwind CSS and vanilla JS.</li>
         <li><strong>Cybersecurity Toolkit</strong>: Python tools for ethical hacking including port scanning and packet inspection.</li>
       </ul>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="tab-content" role="tabpanel" aria-labelledby="tab-contact">
-      <h2 class="text-4xl font-bold mb-6 text-blue-600 dark:text-sky-400">Contact Me</h2>
-      <form action="https://formspree.io/f/mayvnvyl" method="POST" class="max-w-lg mx-auto space-y-4 text-gray-800 dark:text-gray-200">
-        <input name="name" type="text" required placeholder="Your Name" aria-label="Your Name" class="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <input name="email" type="email" required placeholder="Your Email" aria-label="Your Email" class="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400" />
-        <textarea name="message" rows="5" required placeholder="Your Message" aria-label="Your Message" class="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+    <section id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
+      <h2 class="text-4xl font-bold mb-6 text-blue-400 text-center">Contact Me</h2>
+      <form action="https://formspree.io/f/mayvnvyl" method="POST" class="max-w-lg mx-auto space-y-4 text-gray-300">
+        <input name="name" type="text" required placeholder="Your Name" aria-label="Your Name" class="w-full px-4 py-3 rounded-md border border-blue-600 bg-[#1e293b] focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <input name="email" type="email" required placeholder="Your Email" aria-label="Your Email" class="w-full px-4 py-3 rounded-md border border-blue-600 bg-[#1e293b] focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        <textarea name="message" rows="5" required placeholder="Your Message" aria-label="Your Message" class="w-full px-4 py-3 rounded-md border border-blue-600 bg-[#1e293b] focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md transition">Send Message</button>
       </form>
     </section>
   </main>
 
-  <footer class="text-center py-8 text-gray-500 dark:text-gray-400 select-none">
+  <footer>
     &copy; 2025 Md Syful Islam Siyam | Made with ❤️ and clean code
   </footer>
 
@@ -173,36 +213,37 @@
       loop: true,
     });
 
-    // Dark Mode toggle
-    const darkToggle = document.getElementById('darkToggle');
-    darkToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      // toggle icon
-      darkToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
-    });
-
-    // Tabs functionality
+    // Tabs functionality - fully accessible and smooth fade/slide
     const tabs = document.querySelectorAll('.tab-btn');
-    const contents = document.querySelectorAll('.tab-content');
+    const panels = document.querySelectorAll('.tab-content > section');
 
-    tabs.forEach(tab => {
+    tabs.forEach((tab, i) => {
       tab.addEventListener('click', () => {
-        // Deselect all tabs
-        tabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        // Hide all contents
-        contents.forEach(c => c.classList.remove('active'));
-        // Activate clicked tab and related content
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        const target = tab.getAttribute('data-tab');
-        document.getElementById(target).classList.add('active');
+        activateTab(i);
+      });
+      tab.addEventListener('keydown', e => {
+        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          e.preventDefault();
+          let newIndex = i + (e.key === 'ArrowRight' ? 1 : -1);
+          if(newIndex < 0) newIndex = tabs.length - 1;
+          if(newIndex >= tabs.length) newIndex = 0;
+          tabs[newIndex].focus();
+          activateTab(newIndex);
+        }
       });
     });
 
-    // Skill bubbles data
+    function activateTab(index) {
+      tabs.forEach((tab, i) => {
+        const selected = i === index;
+        tab.classList.toggle('active', selected);
+        tab.setAttribute('aria-selected', selected);
+        tab.setAttribute('tabindex', selected ? '0' : '-1');
+        panels[i].classList.toggle('active', selected);
+      });
+    }
+
+    // Skill bubbles animation
     const skills = [
       "C", "C++", "Python", "HTML", "CSS", "JavaScript",
       "Cybersecurity", "Real-Time Systems", "Ethical Hacking",
@@ -213,38 +254,31 @@
     const container = document.getElementById('skills-bubbles');
     const bubbles = [];
 
-    // Create bubbles
-    skills.forEach(skill => {
-      const bubble = document.createElement('div');
-      bubble.className = 'bubble';
-      bubble.textContent = skill;
-      container.appendChild(bubble);
-      bubbles.push({
-        el: bubble,
-        x: Math.random() * (container.clientWidth - 100),
-        y: Math.random() * (container.clientHeight - 40),
-        dx: (Math.random() - 0.5) * 0.7,
-        dy: (Math.random() - 0.5) * 0.7,
+    function createBubbles() {
+      container.innerHTML = ''; // clear existing
+      skills.forEach(skill => {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.textContent = skill;
+        container.appendChild(bubble);
+        bubbles.push({
+          el: bubble,
+          x: Math.random() * (container.clientWidth - 100),
+          y: Math.random() * (container.clientHeight - 40),
+          dx: (Math.random() - 0.5) * 0.7,
+          dy: (Math.random() - 0.5) * 0.7,
+        });
+        bubble.style.transform = `translate(${bubbles[bubbles.length - 1].x}px, ${bubbles[bubbles.length - 1].y}px)`;
       });
-      // Set initial position
-      bubble.style.transform = `translate(${bubbles[bubbles.length-1].x}px, ${bubbles[bubbles.length-1].y}px)`;
-    });
+    }
 
-    // Animate bubbles
     function animateBubbles() {
       bubbles.forEach(b => {
         b.x += b.dx;
         b.y += b.dy;
 
-        // Bounce inside container bounds
-        if (b.x < 0) {
-          b.x = 0;
-          b.dx *= -1;
-        }
-        if (b.y < 0) {
-          b.y = 0;
-          b.dy *= -1;
-        }
+        if (b.x < 0) { b.x = 0; b.dx *= -1; }
+        if (b.y < 0) { b.y = 0; b.dy *= -1; }
         if (b.x > container.clientWidth - b.el.offsetWidth) {
           b.x = container.clientWidth - b.el.offsetWidth;
           b.dx *= -1;
@@ -253,31 +287,22 @@
           b.y = container.clientHeight - b.el.offsetHeight;
           b.dy *= -1;
         }
-
         b.el.style.transform = `translate(${b.x}px, ${b.y}px)`;
       });
       requestAnimationFrame(animateBubbles);
     }
+
+    window.addEventListener('resize', () => {
+      // Recalculate bubbles positions on resize
+      bubbles.forEach(b => {
+        b.x = Math.min(b.x, container.clientWidth - b.el.offsetWidth);
+        b.y = Math.min(b.y, container.clientHeight - b.el.offsetHeight);
+      });
+    });
+
+    createBubbles();
     animateBubbles();
 
-    // Accessibility: Keyboard navigation on tabs
-    let tabFocus = 0;
-    document.querySelector('.flex[aria-label="Main tabs"]').addEventListener('keydown', (e) => {
-      if(e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-        tabs[tabFocus].classList.remove('active');
-        tabs[tabFocus].setAttribute('aria-selected', 'false');
-        if(e.key === 'ArrowRight') {
-          tabFocus = (tabFocus + 1) % tabs.length;
-        } else {
-          tabFocus = (tabFocus - 1 + tabs.length) % tabs.length;
-        }
-        tabs[tabFocus].classList.add('active');
-        tabs[tabFocus].setAttribute('aria-selected', 'true');
-        contents.forEach(c => c.classList.remove('active'));
-        document.getElementById(tabs[tabFocus].getAttribute('data-tab')).classList.add('active');
-        tabs[tabFocus].focus();
-      }
-    });
   </script>
 </body>
 </html>

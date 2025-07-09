@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Md Syful Islam Siyam</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Md Syful Islam Siyam | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body data-barba="wrapper">
+<body>
 
-    <div class="transition-screen"></div>
-
+  <header>
     <nav>
-        <a href="index.html" class="active">About</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <a href="contact.html">Contact</a>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
+  </header>
 
-    <main data-barba="container" data-barba-namespace="home">
-        <section class="content-container">
-             <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-img content-animate">
-            <h1 class="hero-name content-animate">Md Syful Islam Siyam</h1>
-            <p class="hero-subtitle content-animate">Building Secure & Real-Time Systems | Open to Global Opportunities</p>
-            <p class="about-text content-animate">
-                Greetings! I am a dedicated Computer Science and Engineering student specializing in real-time systems, cybersecurity, and web application development. My passion lies in crafting secure, scalable technologies that deliver meaningful impact globally.
-            </p>
-        </section>
-    </main>
+  <main>
+    <section class="section">
+      <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-img">
+      <h1>Md Syful Islam Siyam</h1>
+      <div id="typed-text"></div>
+      <p>I am a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and scalable secure applications.</p>
+    </section>
+  </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="app.js"></script>
+  <footer>
+    <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
+  </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    const typed = new Typed('#typed-text', {
+      strings: [
+        'Aspiring Cybersecurity Expert',
+        'Real-Time Systems Developer',
+        'Web Application Builder',
+        'Clean Code Enthusiast'
+      ],
+      typeSpeed: 60,
+      backSpeed: 30,
+      backDelay: 1500,
+      loop: true
+    });
+  </script>
 </body>
 </html>

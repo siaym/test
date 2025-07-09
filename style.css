@@ -14,16 +14,24 @@ body {
   background: #0a0a0a;
   color: #cfd8dc;
   overflow-x: hidden;
-  line-height: 1.6;
 }
 
-/* Header & Navigation */
+a {
+  color: #5af;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header & nav */
 header {
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  background: rgba(10, 10, 10, 0.9);
+  background: rgba(10, 10, 10, 0.85);
   backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid #222;
   z-index: 1000;
@@ -42,14 +50,7 @@ nav a {
   letter-spacing: 0.05em;
   position: relative;
   padding-bottom: 4px;
-  color: #ccc;
-  transition: color 0.3s ease;
-  text-decoration: none;
-}
-
-nav a.active,
-nav a:hover {
-  color: #5af;
+  color: #cfd8dc;
 }
 
 nav a::after {
@@ -63,8 +64,8 @@ nav a::after {
   transition: width 0.3s ease;
 }
 
-nav a.active::after,
-nav a:hover::after {
+nav a:hover::after,
+nav a.active::after {
   width: 100%;
 }
 
@@ -72,7 +73,7 @@ nav a:hover::after {
 main.container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 7rem 1rem 5rem; /* Push content below fixed header */
+  padding: 7rem 1rem 5rem; /* To avoid content under fixed header */
 }
 
 /* Sections */
@@ -84,9 +85,9 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  opacity: 0; /* For fade-in animation */
-  transform: translateY(40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 section.visible {
@@ -94,24 +95,12 @@ section.visible {
   transform: translateY(0);
 }
 
-section > h1,
 section > h2 {
   font-weight: 600;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: #5af;
   text-align: center;
-}
-
-.subtitle {
-  text-align: center;
-  font-weight: 600;
-  color: #5af;
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 section p,
@@ -121,18 +110,6 @@ section ul {
   max-width: 700px;
   margin: 0 auto 2rem;
   color: #ccc;
-}
-
-/* Profile Image */
-.profile-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 2rem auto 3rem;
-  box-shadow: 0 0 12px #5af44d8a;
-  border: 3px solid #5af;
-  display: block;
 }
 
 /* Typed text */
@@ -148,6 +125,18 @@ section ul {
   max-width: 300px;
 }
 
+/* Profile Image */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 2rem auto 3rem;
+  box-shadow: 0 0 12px #5af44d8a;
+  border: 3px solid #5af;
+  display: block;
+}
+
 /* Footer */
 footer {
   text-align: center;
@@ -155,104 +144,6 @@ footer {
   padding: 1rem 0;
   color: #555;
   font-size: 0.9rem;
-}
-
-/* Skills Grid */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  max-width: 700px;
-  margin: 0 auto 2rem;
-}
-
-.skills-grid div {
-  background: #111;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #3355ff33 inset;
-  text-align: center;
-  font-weight: 600;
-  color: #5af;
-  transition: transform 0.3s ease;
-  cursor: default;
-}
-
-.skills-grid div:hover {
-  transform: scale(1.1);
-}
-
-/* Projects & Experience styling */
-.project {
-  background: #111;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 0 25px #2a48ff55 inset;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.project h2 {
-  color: #5af;
-  margin-bottom: 0.8rem;
-}
-
-.project p {
-  font-weight: 300;
-  color: #ccc;
-}
-
-/* Form Styling */
-form {
-  max-width: 600px;
-  margin: 0 auto;
-  background: #111;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 25px #5af9ff66;
-}
-
-form label {
-  display: block;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-  color: #5af;
-}
-
-form input,
-form textarea {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.2rem;
-  border-radius: 8px;
-  border: none;
-  background: #222;
-  color: #ccc;
-  font-size: 1rem;
-  resize: vertical;
-  font-family: inherit;
-}
-
-form input:focus,
-form textarea:focus {
-  outline: 2px solid #5af;
-}
-
-form button {
-  background: #5af;
-  border: none;
-  color: #fff;
-  font-weight: 700;
-  padding: 0.8rem 2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-form button:hover {
-  background: #3a6ce6;
 }
 
 /* Responsive */
@@ -264,7 +155,6 @@ form button:hover {
     justify-content: center;
   }
 
-  section > h1,
   section > h2 {
     font-size: 2rem;
   }

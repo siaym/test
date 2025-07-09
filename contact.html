@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Contact | Md Syful Islam Siyam</title>
+  <title>Md Syful Islam Siyam | Contact</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
   <header>
@@ -19,30 +18,28 @@
   </header>
 
   <main class="container">
-    <section class="fade-in" id="contact">
-      <h1>Contact Me</h1>
+    <section id="contact" class="fade-in" style="max-width:700px; margin:0 auto; text-align:center;">
+      <h2 style="color:#5af; font-weight:700; font-size:2.5rem; margin-bottom:2rem;">Get in Touch</h2>
+      <p style="color:#ccc; margin-bottom:1.5rem;">Feel free to reach out via email or social media.</p>
 
-      <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain" onsubmit="alert('Thank you for contacting me! Please check your email client to send the message.');">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="Name" required />
+      <p style="color:#5af; font-weight:600; font-size:1.2rem; margin-bottom:0.5rem;">Email:</p>
+      <p><a href="mailto:syful@example.com">syful@example.com</a></p>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="Email" required />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="Message" rows="5" required></textarea>
-
-        <button type="submit">Send</button>
-      </form>
+      <p style="color:#5af; font-weight:600; font-size:1.2rem; margin-top:1.5rem; margin-bottom:0.5rem;">Socials:</p>
+      <p>
+        <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer">Twitter</a> |
+        <a href="https://github.com/siaym" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </p>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
+    &copy; 2025 Md Syful Islam Siyam. All rights reserved.
   </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

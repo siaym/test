@@ -1,91 +1,71 @@
-/* Reset */
+/* Reset & base */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
 }
 
-body {
+html {
+  scroll-behavior: smooth;
   font-family: 'Poppins', sans-serif;
   background: #0a0a0a;
   color: #cfd8dc;
 }
 
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+a {
+  color: #5af;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+}
+
+a:hover, a.active {
+  text-decoration: underline;
+  color: #aaf;
+}
+
+/* Header */
 header {
   position: fixed;
-  top: 0;
   width: 100%;
+  top: 0; left: 0;
   background: rgba(10, 10, 10, 0.85);
-  padding: 1rem;
-  text-align: center;
+  backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid #222;
   z-index: 1000;
 }
 
-nav a {
-  color: #cfd8dc;
-  margin: 0 1rem;
-  font-weight: 600;
-  text-decoration: none;
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
 }
 
-nav a.active,
-nav a:hover {
-  color: #5af;
+/* Main container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 7rem 1rem 4rem;
 }
 
-main.container {
-  max-width: 700px;
-  margin: 5rem auto 2rem;
-  padding: 0 1rem;
-}
-
-section.section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-  margin-bottom: 3rem;
-}
-
-section.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-h1, h2 {
-  color: #5af;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.subtitle {
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.profile-img {
-  display: block;
-  margin: 1rem auto 2rem;
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #5af;
-  box-shadow: 0 0 12px #5af44d8a;
-}
-
-.typed-text {
-  color: #5af;
-  font-weight: 600;
-  font-size: 1.25rem;
-  text-align: center;
-  height: 1.5rem; /* prevent jump */
-  margin-bottom: 2rem;
-}
-
+/* Footer */
 footer {
   text-align: center;
   color: #555;
   padding: 1rem 0;
+  border-top: 1px solid #222;
+  margin-top: 3rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 6rem 1rem 3rem;
+  }
 }

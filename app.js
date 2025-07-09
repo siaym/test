@@ -1,100 +1,128 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Setup ---
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
-    const mainContainer = document.getElementById('main-container');
+    // --- Lenis Smooth Scroll Setup ---
+    const lenis = new Lenis();
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
 
     // --- Custom Cursor ---
     const cursor = document.querySelector('.cursor');
     const follower = document.querySelector('.cursor-follower');
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-
+    
     gsap.set(cursor, { xPercent: -50, yPercent: -50 });
     gsap.set(follower, { xPercent: -50, yPercent: -50 });
 
     window.addEventListener('mousemove', e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        gsap.to(cursor, 0.2, { x: mouseX, y: mouseY });
+        gsap.to(cursor, 0.1, { x: e.clientX, y: e.clientY });
+        gsap.to(follower, 0.6, { x: e.clientX, y: e.clientY, ease: "power3.out" });
     });
-    
-    gsap.ticker.add(() => {
-        followerX += (mouseX - followerX) * 0.2;
-        followerY += (mouseY - followerY) * 0.2;
-        gsap.set(follower, { x: followerX, y: followerY });
-    });
-    
+
     document.querySelectorAll('.magneto').forEach(el => {
         el.addEventListener('mouseenter', () => follower.classList.add('active'));
         el.addEventListener('mouseleave', () => follower.classList.remove('active'));
     });
 
-    // --- WebGL Image Distortion ---
-    try {
-        const imageContainer = document.querySelector('.profile-image-container');
-        const image = document.querySelector('.profile-img');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
-        camera.position.z = 1;
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(imageContainer.clientWidth, imageContainer.clientHeight);
-        imageContainer.appendChild(renderer.domElement);
+    // --- Navigation ---
+    const navLinks = gsap.utils.toArray('.nav-link');
 
-        const textureLoader = new THREE.TextureLoader();
-        const texture = textureLoader.load(image.src);
-        image.style.display = 'none'; // Hide original image
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = e.target.getAttribute('href');
+            lenis.scrollTo(target, { offset: -50, duration: 2 });
+        });
+    });
 
-        const geometry = new THREE.PlaneBufferGeometry(1.5, 1.5, 32, 32);
-        const material = new THREE.ShaderMaterial({
-            uniforms: {
-                uTexture: { value: texture },
-                uTime: { value: 0 },
-                uMouse: { value: new THREE.Vector2(0, 0) },
-                uIntensity: { value: 0 },
-            },
-            vertexShader: `
-                varying vec2 vUv;
-                void main() {
-                    vUv = uv;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    gsap.utils.toArray('.panel').forEach(section => {
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top 50%",
+            end: "bottom 50%",
+            onToggle: self => {
+                const link = navLinks.find(link => link.getAttribute('href') === `#${section.id}`);
+                if (link) {
+                    link.classList.toggle('active', self.isActive);
                 }
-            `,
-            fragmentShader: `
-                uniform sampler2D uTexture;
-                uniform float uTime;
-                uniform vec2 uMouse;
-                uniform float uIntensity;
-                varying vec2 vUv;
+            }
+        });
+    });
 
-                void main() {
-                    vec2 uv = vUv;
-                    float distance = length(uv - uMouse);
-                    float wave = sin(distance * 20.0 - uTime * 5.0) * 0.02 * uIntensity;
-                    uv += wave;
-                    gl_FragColor = texture2D(uTexture, uv);
-                }
-            `
-        });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
+    // --- Animations ---
 
-        function animate() {
-            requestAnimationFrame(animate);
-            material.uniforms.uTime.value += 0.01;
-            renderer.render(scene, camera);
-        }
-        animate();
-        
-        imageContainer.addEventListener('mousemove', (e) => {
-            const rect = imageContainer.getBoundingClientRect();
-            material.uniforms.uMouse.value.x = (e.clientX - rect.left) / rect.width;
-            material.uniforms.uMouse.value.y = 1.0 - ((e.clientY - rect.top) / rect.height);
-        });
+    // 1. About Panel
+    const aboutTl = gsap.timeline({
+        scrollTrigger: { trigger: ".about-panel", start: "top 80%", toggleActions: "play none none reverse" }
+    });
+    const splitName = new SplitText(".hero-name", { type: "chars" });
+    const splitSub = new SplitText(".hero-subtitle", { type: "words" });
 
-        imageContainer.addEventListener('mouseenter', () => {
-            gsap.to(material.uniforms.uIntensity, { value: 1.0, duration: 0.5 });
+    aboutTl.from(splitName.chars, { opacity: 0, y: 60, ease: 'power3.out', stagger: 0.03, duration: 1 })
+           .from(splitSub.words, { opacity: 0, y: 30, ease: 'power3.out', stagger: 0.05 }, "-=0.8");
+    
+    gsap.from(".profile-img", {
+        scrollTrigger: { trigger: ".about-panel", start: "top 80%", toggleActions: "play none none reverse" },
+        scale: 0.5,
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power3.out'
+    });
+
+
+    // 2. Projects Panel
+    gsap.from(".project-card", {
+        scrollTrigger: { trigger: ".projects-panel", start: "top 70%", toggleActions: "play none none reverse" },
+        y: 100,
+        opacity: 0,
+        stagger: 0.15,
+        duration: 1,
+        ease: 'power3.out'
+    });
+    
+    // 3. Skills Panel
+    gsap.from(".skill-item", {
+        scrollTrigger: { trigger: ".skills-panel", start: "top 70%", toggleActions: "play none none reverse" },
+        y: 50,
+        opacity: 0,
+        stagger: 0.05,
+        duration: 0.8,
+        ease: 'power3.out'
+    });
+
+    // 4. Experience Panel
+    gsap.from(".experience-item", {
+        scrollTrigger: { trigger: ".experience-panel", start: "top 70%", toggleActions: "play none none reverse" },
+        x: -50,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 1,
+        ease: 'power3.out'
+    });
+    
+    // 5. Contact Panel
+    gsap.from(".contact-text", {
+        scrollTrigger: { trigger: ".contact-panel", start: "top 70%", toggleActions: "play none none reverse" },
+        y: 100,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power3.out'
+    });
+    
+    // Animate all section titles
+    gsap.utils.toArray('.section-title').forEach(title => {
+        const splitTitle = new SplitText(title, { type: "chars, words" });
+        gsap.from(splitTitle.chars, {
+            scrollTrigger: { trigger: title, start: "top 85%", toggleActions: "play none none reverse" },
+            opacity: 0,
+            y: 80,
+            stagger: 0.02,
+            duration: 0.8,
+            ease: 'power3.out'
         });
-        imageContainer.addEventListener('mouseleave', () => {
-            gsap.to(material.uniforms.uIntensity, { value: 0.0, duration: 0.5 });
-        });
+    });
+});

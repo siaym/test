@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Md Syful Islam Siyam | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
     <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">About</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="experience.html">Experience</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <a href="index.html" class="active">About</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main>
-    <section class="section">
-      <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-img">
+  <main class="container">
+    <section class="fade-in" id="about">
+      <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-img" />
       <h1>Md Syful Islam Siyam</h1>
-      <div id="typed-text"></div>
-      <p>I am a Computer Science and Engineering student passionate about cybersecurity, real-time systems, and scalable secure applications.</p>
+      <p class="subtitle">
+        Building Secure & Real-Time Systems | Open to Global Opportunities | Dhaka, Bangladesh
+      </p>
+
+      <div class="typed-text fade-in-up" id="typed"></div>
+
+      <p>
+        Greetings! I am <strong>Md Syful Islam Siyam</strong>, a dedicated Computer Science and Engineering student specializing in real-time systems, cybersecurity, and web application development.<br />
+        My passion lies in crafting secure and scalable technologies that deliver meaningful impact globally.<br />
+        I am committed to writing clean, maintainable code and continuously expanding my expertise to provide innovative and professional solutions.
+      </p>
     </section>
   </main>
 
@@ -34,19 +40,29 @@
     <p>&copy; 2025 Md Syful Islam Siyam. All rights reserved.</p>
   </footer>
 
+  <!-- External scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="app.js"></script>
+
   <script>
-    const typed = new Typed('#typed-text', {
-      strings: [
-        'Aspiring Cybersecurity Expert',
-        'Real-Time Systems Developer',
-        'Web Application Builder',
-        'Clean Code Enthusiast'
-      ],
-      typeSpeed: 60,
-      backSpeed: 30,
-      backDelay: 1500,
-      loop: true
+    // Typed.js initialization for typed text effect
+    document.addEventListener('DOMContentLoaded', () => {
+      new Typed('#typed', {
+        strings: [
+          'Aspiring Cybersecurity Expert',
+          'Real-Time Systems Developer',
+          'Web Application Builder',
+          'Clean Code Enthusiast'
+        ],
+        typeSpeed: 60,
+        backSpeed: 35,
+        backDelay: 1800,
+        loop: true,
+        showCursor: true,
+        cursorChar: '|',
+      });
     });
   </script>
 </body>

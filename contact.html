@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Md Syful Islam Siyam</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Contact | Siyam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body data-barba="wrapper">
-
-    <div class="transition-screen"></div>
-
+<body>
+  <header>
     <nav>
-        <a href="index.html">About</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="experience.html">Experience</a>
-        <a href="contact.html" class="active">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="skills.html">Skills</a>
+      <a href="projects.html">Projects</a>
+      <a href="experience.html">Experience</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
+  </header>
 
-    <main data-barba="container" data-barba-namespace="contact">
-         <section class="content-container">
-            <h2 class="section-title content-animate">Get In <span>Touch</span></h2>
-            <p class="content-animate">I'm open to discussing new projects and opportunities. Feel free to send me a message.</p>
-            <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain" class="content-animate">
-                <input type="text" name="Name" placeholder="Your Name" required>
-                <input type="email" name="Email" placeholder="Your Email" required>
-                <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
+  <main class="container">
+    <h1 class="fade-in">Contact Me</h1>
 
-    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="app.js"></script>
+    <form class="fade-in-up" action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="Name" required />
 
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="Email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="Message" rows="6" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

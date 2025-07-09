@@ -1,198 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Md Syful Islam Siyam | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Md Syful Islam Siyam | Portfolio</title>
 
-<!-- AOS Animation CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-<style>
-  :root {
-    --color-primary: #2c3e50;
-    --color-secondary: #3498db;
-    --color-bg: #f9f9f9;
-    --color-text: #333;
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body {
-    font-family: var(--font-main);
-    background: var(--color-bg);
-    color: var(--color-text);
-    line-height: 1.6;
-  }
-  header {
-    position: fixed;
-    width: 100%;
-    background: var(--color-primary);
-    color: white;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-  }
-  header h1 {
-    font-size: 1.5rem;
-  }
-  nav a {
-    color: white;
-    margin-left: 1.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-  nav a:hover {
-    color: var(--color-secondary);
-  }
-  main {
-    padding-top: 80px;
-    max-width: 900px;
-    margin: auto;
-  }
-  section {
-    padding: 60px 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  h2 {
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    margin-bottom: 20px;
-    border-bottom: 3px solid var(--color-secondary);
-    display: inline-block;
-  }
-  p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin-bottom: 1.5rem;
-  }
-  .btn {
-    display: inline-block;
-    background: var(--color-secondary);
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    border: none;
-  }
-  .btn:hover {
-    background: #2980b9;
-  }
-  /* Parallax background for hero */
-  .hero {
-    position: relative;
-    height: 100vh;
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat fixed;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
-  }
-  .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-  }
-  .hero p {
-    font-size: 1.3rem;
-    max-width: 600px;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
-  }
-  /* Responsive */
-  @media (max-width: 600px) {
-    header h1 {
-      font-size: 1.2rem;
+  <style>
+    /* Premium Dark Theme Colors */
+    :root {
+      --bg-color: #0d1117;
+      --text-color: #c9d1d9;
+      --primary-color: #58a6ff;
+      --secondary-color: #8b949e;
+      --card-bg: #161b22;
+      --shadow-color: rgba(88, 166, 255, 0.4);
     }
-    nav a {
-      margin-left: 1rem;
-      font-size: 0.9rem;
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
     }
-    .hero h1 {
-      font-size: 2rem;
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding: 0 1rem;
     }
-    .hero p {
-      font-size: 1rem;
+
+    header {
+      background: rgba(13, 17, 23, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      text-align: center;
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      user-select: none;
     }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h1, h2 {
+      color: var(--primary-color);
+    }
+
     h2 {
-      font-size: 2rem;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 0.25rem;
+      margin-bottom: 1rem;
     }
-  }
-</style>
+
+    p, li {
+      color: var(--text-color);
+      font-size: 1.1rem;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-top: 0.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin: 2rem 0 4rem;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid var(--primary-color);
+      object-fit: cover;
+      box-shadow: 0 0 25px var(--shadow-color);
+      margin-bottom: 1rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .profile-img:hover {
+      box-shadow: 0 0 45px var(--primary-color);
+    }
+
+    /* Simple button */
+    .btn {
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn:hover {
+      background-color: #1f6feb;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <h1>Md Syful Islam Siyam</h1>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<header data-aos="fade-down">
+  Md Syful Islam Siyam
 </header>
 
-<section class="hero" id="home">
-  <h1 data-aos="fade-down" data-aos-duration="1500">Hi, I'm Md Syful Islam Siyam</h1>
-  <p data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300">Aspiring Cybersecurity Pro | CSE Student | Web & Real-Time System Developer</p>
-  <button class="btn" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="600" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
-</section>
-
 <main>
-  <section id="about" data-aos="fade-right" data-aos-duration="1000">
-    <h2>About Me</h2>
-    <p>I am a passionate Computer Science student at Daffodil International University with interests in cybersecurity, web development, and real-time systems. I strive for clean code and scalable architecture.</p>
+  <section class="hero" data-aos="zoom-in">
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-img" />
+    <h1>Md Syful Islam Siyam</h1>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
   </section>
 
-  <section id="skills" data-aos="fade-left" data-aos-duration="1000">
+  <section id="about" data-aos="fade-right">
+    <h2>About Me</h2>
+    <p>
+      I am a passionate Computer Science student at Daffodil International University specializing in cybersecurity, real-time embedded systems, and building clean, scalable software.
+    </p>
+  </section>
+
+  <section id="skills" data-aos="fade-left">
     <h2>Skills</h2>
     <ul>
-      <li>C, C++, Python</li>
-      <li>HTML, CSS, JavaScript</li>
-      <li>Cybersecurity basics & Ethical Hacking</li>
-      <li>Real-time embedded system concepts</li>
-      <li>Git & Version Control</li>
+      <li>C, C++, Python, JavaScript</li>
+      <li>HTML, CSS, Git, GitHub Pages</li>
+      <li>Cybersecurity fundamentals & ethical hacking basics</li>
+      <li>Real-time embedded systems development</li>
     </ul>
   </section>
 
-  <section id="projects" data-aos="fade-right" data-aos-duration="1000">
+  <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
-    <p>Building a GPS bus tracking system using C for fast response.</p>
-    <p>Developing web applications with clean code principles.</p>
-    <!-- You can expand this section with project cards later -->
+    <ul>
+      <li>GPS Bus Tracking System – Real-time tracking with embedded C</li>
+      <li>Personal Portfolio Website – Responsive and animated site on GitHub Pages</li>
+      <li>Cybersecurity Toolkit – Python vulnerability scanning tools</li>
+    </ul>
   </section>
 
-  <section id="contact" data-aos="fade-left" data-aos-duration="1000">
+  <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
-    <p>Feel free to reach out via email or LinkedIn.</p>
-    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank">siyam-itprofessional</a></p>
+    <p>Email: <a href="mailto:your.email@example.com" style="color: var(--primary-color)">your.email@example.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" style="color: var(--primary-color)">siyam-itprofessional</a></p>
+    <p>GitHub: <a href="https://github.com/siaym" target="_blank" style="color: var(--primary-color)">github.com/siaym</a></p>
   </section>
 </main>
 
-<!-- AOS Animation JS -->
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-  AOS.init();
-
-  // Smooth scroll for nav links
-  document.querySelectorAll('nav a').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').slice(1);
-      document.getElementById(targetId).scrollIntoView({behavior: 'smooth'});
-    });
+  AOS.init({
+    duration: 1000,
+    once: true,
   });
 </script>
 

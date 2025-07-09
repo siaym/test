@@ -1,531 +1,450 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Md Syful Islam Siyam | Portfolio</title>
-  
-  <style>
-    /* Reset & base */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-    body {
-      background: linear-gradient(135deg, #0f172a, #14273a);
-      color: #e1e7ef;
-      min-height: 100vh;
-      line-height: 1.6;
-      overflow-x: hidden;
-      padding: 2rem 0;
-      display: flex;
-      justify-content: center;
-    }
-    a {
-      color: #50d9ff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #a0e7ff;
-      text-decoration: underline;
-    }
-  
-    /* Main container with subtle glass effect */
-    .container {
-      max-width: 960px;
-      width: 95%;
-      background: rgba(15, 23, 42, 0.85);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-      border-radius: 20px;
-      padding: 2.5rem 3rem 4rem;
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(80, 217, 255, 0.25);
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Md Syful Islam Siyam | Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: #cfd8dc;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+  a {
+    color: #5af;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
 
-    /* Glow effect for headings */
-    .glow-heading {
-      color: #50d9ff;
-      text-shadow:
-        0 0 8px #50d9ff,
-        0 0 20px #1ec8e7,
-        0 0 30px #50d9ffcc;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
-  
-    /* Header */
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 3px solid #1ec8e7;
-      box-shadow: 0 0 30px #1ec8e7aa;
-      object-fit: cover;
-      transition: box-shadow 0.3s ease;
-    }
-    header img:hover {
-      box-shadow: 0 0 50px #50d9ffcc;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin: 1rem 0 0.2rem;
-      color: #50d9ff;
-      text-shadow: 0 0 10px #1ec8e7bb;
-    }
-    header .typed-text {
-      font-weight: 600;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: #a0e7ff;
-      min-height: 28px;
-    }
-    header p.subtitle {
-      font-style: italic;
-      font-size: 1.1rem;
-      color: #7aaec8;
-      max-width: 600px;
-      margin: 0.25rem auto 0;
-    }
-    header nav.social-links {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-    }
-    header nav.social-links a {
-      font-weight: 600;
-      padding: 0.45rem 1.1rem;
-      border: 1.5px solid #1ec8e7;
-      border-radius: 50px;
-      background: rgba(20, 39, 55, 0.7);
-      box-shadow: 0 0 12px #1ec8e730;
-      transition: background 0.3s, box-shadow 0.3s, color 0.3s;
-      user-select: none;
-    }
-    header nav.social-links a:hover {
-      background: #1ec8e7;
-      color: #0f172a;
-      box-shadow: 0 0 20px #50d9ffcc;
-    }
-  
-    /* Tabs */
-    nav.tabs {
-      display: flex;
-      justify-content: center;
+  /* Container */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1rem 5rem;
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid #222;
+    z-index: 1000;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    padding-bottom: 4px;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #5af;
+    transition: width 0.3s ease;
+  }
+  nav a:hover::after,
+  nav a.active::after {
+    width: 100%;
+  }
+
+  /* Sections */
+  section {
+    min-height: 100vh;
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  section > h2 {
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #5af;
+    text-align: center;
+  }
+  section p,
+  section ul {
+    font-weight: 300;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    color: #ccc;
+  }
+  section ul {
+    list-style: none;
+  }
+  section ul li {
+    margin-bottom: 0.8rem;
+  }
+  /* Typed text */
+  .typed-text {
+    color: #5af;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+    margin-top: 0.25rem;
+    height: 1.5rem; /* prevent jump */
+    white-space: nowrap;
+  }
+
+  /* Profile Image */
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 2rem auto 3rem;
+    box-shadow: 0 0 12px #5af44d8a;
+    border: 3px solid #5af;
+    display: block;
+  }
+
+  /* Skills grid */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(120px,1fr));
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+  .skills-grid div {
+    background: #111;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #3355ff33 inset;
+    text-align: center;
+    font-weight: 600;
+    color: #5af;
+    transition: transform 0.3s ease;
+  }
+  .skills-grid div:hover {
+    transform: scale(1.1);
+  }
+
+  /* Projects */
+  .project {
+    background: #111;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 0 25px #2a48ff55 inset;
+  }
+  .project h3 {
+    color: #5af;
+    margin-bottom: 0.8rem;
+  }
+  .project p {
+    font-weight: 300;
+    color: #ccc;
+  }
+
+  /* Contact form */
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #111;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 25px #5af9ff66;
+  }
+  form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 600;
+    color: #5af;
+  }
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 8px;
+    border: none;
+    background: #222;
+    color: #ccc;
+    font-size: 1rem;
+    resize: vertical;
+    font-family: inherit;
+  }
+  form input:focus,
+  form textarea:focus {
+    outline: 2px solid #5af;
+  }
+  form button {
+    background: #5af;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  form button:hover {
+    background: #3a6ce6;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    color: #555;
+    font-size: 0.9rem;
+  }
+
+  /* Scroll reveal fade & slide animations */
+  .fade-slide {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-slide.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    header nav {
       gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
+      font-size: 0.9rem;
     }
-    nav.tabs button.tab-btn {
-      background: rgba(20, 39, 55, 0.7);
-      border: none;
-      color: #a0e7ff;
-      padding: 0.8rem 2.2rem;
-      font-weight: 600;
-      border-radius: 9999px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #1ec8e720;
-      transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-      user-select: none;
-      font-size: 1rem;
+    section > h2 {
+      font-size: 2rem;
     }
-    nav.tabs button.tab-btn.active,
-    nav.tabs button.tab-btn:focus {
-      background: #1ec8e7;
-      color: #0f172a;
-      box-shadow: 0 0 20px #50d9ffcc;
-      outline: none;
-      transform: scale(1.1);
-      font-weight: 700;
-    }
-  
-    /* Tab panels */
-    .tab-content > section {
-      display: none;
-      background: rgba(20, 39, 55, 0.8);
-      padding: 2rem 2.5rem;
-      border-radius: 18px;
-      box-shadow: 0 0 40px #1ec8e735;
-      animation: fadeInUp 0.6s ease forwards;
-      min-height: 320px;
-      color: #cbd5e1;
-      line-height: 1.55;
-      font-size: 1.1rem;
-      user-select: text;
-    }
-    .tab-content > section.active {
-      display: block;
-    }
-  
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  
-    /* About */
-    #about p {
-      max-width: 720px;
-      margin: 0 auto 1rem;
-      color: #b0d9ff;
-    }
-  
-    /* Skills - improved floating bubbles container */
-    #skills {
-      position: relative;
-      height: 320px;
-      max-width: 720px;
-      margin: 0 auto;
-    }
-  
-    /* Skill bubbles */
-    .skill-bubble {
-      position: absolute;
-      padding: 11px 22px;
-      border-radius: 9999px;
-      background: rgba(30, 200, 231, 0.25);
-      backdrop-filter: blur(12px);
-      border: 1.5px solid #1ec8e7;
-      color: #d0f0ff;
-      font-weight: 700;
-      font-size: 1rem;
-      box-shadow: 0 0 15px #50d9ffbb;
-      user-select: none;
-      cursor: default;
-      white-space: nowrap;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      animation-name: floatMoveX, floatMoveY;
-      animation-duration: var(--duration, 6s), var(--durationY, 5s);
-      animation-delay: var(--delay, 0s), var(--delayY, 1.5s);
-    }
-  
-    .skill-bubble:hover {
-      box-shadow: 0 0 30px #50d9ffff;
-      transform: scale(1.15);
-    }
-  
-    /* Floating animations on X & Y axis */
-    @keyframes floatMoveX {
-      0%, 100% {
-        transform: translateX(0);
-      }
-      50% {
-        transform: translateX(15px);
-      }
-    }
-    @keyframes floatMoveY {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-  
-    /* Projects styling */
-    #projects .project-card {
-      background: rgba(30, 40, 68, 0.85);
-      border-radius: 15px;
-      padding: 1.6rem 1.8rem;
-      margin-bottom: 1.3rem;
-      box-shadow: 0 0 30px #1ec8e7cc;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      cursor: default;
-      color: #b1c7d6;
-    }
-    #projects .project-card:hover,
-    #projects .project-card:focus {
-      transform: translateY(-8px);
-      box-shadow: 0 0 40px #50d9ffdd;
-      outline: none;
-      color: #e1f7ff;
-    }
-    #projects .project-card h3 {
-      color: #50d9ff;
-      margin-bottom: 0.7rem;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    #projects .project-card p {
-      font-size: 1.05rem;
-      line-height: 1.45;
-    }
-  
-    /* Volunteering, Languages, Future Goals */
-    #volunteering p,
-    #languages p,
-    #future-goals p {
-      max-width: 720px;
-      margin: 0.5rem auto 1rem;
-      color: #a0c4ff;
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-  
-    /* Education tab */
-    #education ul {
-      max-width: 720px;
-      margin: 0 auto;
-      list-style: none;
-      color: #add8ff;
-    }
-    #education li {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      background: rgba(20, 39, 55, 0.6);
-      padding: 1rem 1.3rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #1ec8e7aa;
-    }
-    #education li strong {
-      color: #50d9ff;
-      font-weight: 700;
-    }
-  
-    /* Contact form */
-    #contact form {
-      max-width: 480px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-    }
-    #contact input, #contact textarea {
-      background: rgba(20, 39, 55, 0.8);
-      border: 1.5px solid #1ec8e7;
-      border-radius: 14px;
-      color: #e1e7ef;
-      padding: 0.95rem 1.2rem;
-      font-size: 1.1rem;
-      resize: vertical;
-      box-shadow: inset 0 0 12px #1ec8e740;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    #contact input:focus, #contact textarea:focus {
-      outline: none;
-      box-shadow: inset 0 0 22px #1ec8e7cc;
-      border-color: #50d9ff;
-    }
-    #contact button {
-      background: #1ec8e7;
-      border: none;
-      border-radius: 18px;
-      padding: 1rem 0;
-      font-weight: 700;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: #0f172a;
-      box-shadow: 0 0 30px #50d9ff99;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-    }
-    #contact button:hover {
-      background: #50d9ff;
-      box-shadow: 0 0 45px #50d9ffff;
-    }
-  
-    /* Footer */
-    footer {
-      text-align: center;
-      color: #50d9ff88;
-      font-weight: 600;
-      padding: 2rem 0 1rem;
-      user-select: none;
-      font-size: 1rem;
-    }
-  
-    /* Responsive */
-    @media (max-width: 720px) {
-      header h1 { font-size: 2.3rem; }
-      header img { width: 110px; height: 110px; }
-      nav.tabs {
-        gap: 0.7rem;
-      }
-      nav.tabs button.tab-btn {
-        padding: 0.65rem 1.6rem;
-        font-size: 0.9rem;
-      }
-      .skill-bubble {
-        font-size: 0.9rem;
-        padding: 7px 14px;
-      }
-      #skills {
-        height: 260px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container" role="main">
-    <header>
-      <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" />
-      <h1>Md Syful Islam Siyam</h1>
-      <div class="typed-text" id="typed"></div>
-      <p class="subtitle">Building Secure & Real-Time Systems | Open to Global Opportunities | Dhaka, Bangladesh</p>
-      <nav class="social-links" aria-label="Social Media Links">
-        <a href="https://linkedin.com/in/siyam-itprofessional" target="_blank" rel="noopener noreferrer" tabindex="0">LinkedIn</a>
-        <a href="https://twitter.com/siyamx360" target="_blank" rel="noopener noreferrer" tabindex="0">X (Twitter)</a>
-        <a href="mailto:officehub.siyam@gmail.com" tabindex="0">Email</a>
-      </nav>
-    </header>
-  
-    <nav class="tabs" role="tablist" aria-label="Portfolio Sections Tabs">
-      <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="about" id="tab-about" tabindex="0">About</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skills" id="tab-skills" tabindex="-1">Skills</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="projects" id="tab-projects" tabindex="-1">Projects</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="education" id="tab-education" tabindex="-1">Education</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="volunteering" id="tab-volunteering" tabindex="-1">Volunteering</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="languages" id="tab-languages" tabindex="-1">Languages</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="future-goals" id="tab-future-goals" tabindex="-1">Future Goals</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contact" id="tab-contact" tabindex="-1">Contact</button>
-    </nav>
-  
-    <div class="tab-content">
-      <section id="about" role="tabpanel" aria-labelledby="tab-about" tabindex="0" class="active">
-        <h2 class="glow-heading">About Me</h2>
-        <p>Greetings! I am <strong>Md Syful Islam Siyam</strong>, a dedicated Computer Science and Engineering student specializing in real-time systems, cybersecurity, and web application development. My passion lies in crafting secure and scalable technologies that deliver meaningful impact globally.</p>
-        <p>I am committed to writing clean, maintainable code and continuously expanding my expertise to provide innovative and professional solutions.</p>
-      </section>
-  
-      <section id="skills" role="tabpanel" aria-labelledby="tab-skills" tabindex="0">
-        <h2 class="glow-heading">Technical Skills</h2>
-        <div id="skills-container" aria-label="Skill bubbles" style="position: relative; height: 320px;">
-          <div class="skill-bubble" style="top: 15%; left: 10%;">C</div>
-          <div class="skill-bubble" style="top: 50%; left: 30%;">C++</div>
-          <div class="skill-bubble" style="top: 20%; left: 65%;">Python</div>
-          <div class="skill-bubble" style="top: 65%; left: 25%;">HTML</div>
-          <div class="skill-bubble" style="top: 60%; left: 68%;">CSS</div>
-          <div class="skill-bubble" style="top: 40%; left: 80%;">JavaScript</div>
-          <div class="skill-bubble" style="top: 40%; left: 45%;">Cybersecurity</div>
-          <div class="skill-bubble" style="top: 25%; left: 35%;">Real-Time Systems</div>
-          <div class="skill-bubble" style="top: 50%; left: 75%;">Clean Code</div>
-          <div class="skill-bubble" style="top: 70%; left: 55%;">Scalable Design</div>
-        </div>
-      </section>
-  
-      <section id="projects" role="tabpanel" aria-labelledby="tab-projects" tabindex="0">
-        <h2 class="glow-heading">Highlighted Projects</h2>
-        <div class="project-card" tabindex="0">
-          <h3>Real-Time GPS Bus Tracking System</h3>
-          <p>Developed a high-performance GPS tracking application using C language, focusing on real-time data processing and responsive updates. This project emphasizes speed and accuracy for efficient public transport management.</p>
-        </div>
-        <div class="project-card" tabindex="0">
-          <h3>Secure Web App Development</h3>
-          <p>Built secure, scalable web applications implementing best practices in cybersecurity and clean coding. Utilized modern web technologies to ensure robust and maintainable solutions.</p>
-        </div>
-        <div class="project-card" tabindex="0">
-          <h3>Cybersecurity Research & Tools</h3>
-          <p>Conducted in-depth research on ethical hacking and network security, developing tools and scripts to enhance system defenses and vulnerability assessments.</p>
-        </div>
-      </section>
-  
-      <section id="education" role="tabpanel" aria-labelledby="tab-education" tabindex="0">
-        <h2 class="glow-heading">Education</h2>
-        <ul>
-          <li><strong>B.Sc. in Computer Science & Engineering</strong>, Daffodil International University, Dhaka — Currently Enrolled</li>
-          <li><strong>Higher Secondary Certificate (HSC)</strong>, BIRSHRESTHO Noor Mohammad Public School and College — GPA: 5.00</li>
-        </ul>
-      </section>
-  
-      <section id="volunteering" role="tabpanel" aria-labelledby="tab-volunteering" tabindex="0">
-        <h2 class="glow-heading">Volunteering</h2>
-        <p>Active volunteer with Bangladesh Red Crescent Society (BDRCS) and Youth Action For Social Development (YASD), contributing time and skills towards community development and disaster relief initiatives.</p>
-      </section>
-  
-      <section id="languages" role="tabpanel" aria-labelledby="tab-languages" tabindex="0">
-        <h2 class="glow-heading">Languages</h2>
-        <p>Fluent in Bengali and English, with strong written and verbal communication skills in both languages.</p>
-      </section>
-  
-      <section id="future-goals" role="tabpanel" aria-labelledby="tab-future-goals" tabindex="0">
-        <h2 class="glow-heading">Future Goals</h2>
-        <p>Aspiring to become a globally recognized cybersecurity expert and system architect, focusing on building secure, scalable real-time systems that positively impact lives worldwide. Pursuing advanced degrees and certifications in cybersecurity and real-time embedded systems.</p>
-      </section>
-  
-      <section id="contact" role="tabpanel" aria-labelledby="tab-contact" tabindex="0">
-        <h2 class="glow-heading">Get In Touch</h2>
-        <form action="mailto:officehub.siyam@gmail.com" method="post" enctype="text/plain" aria-label="Contact Form">
-          <input type="text" name="name" placeholder="Your Full Name" required aria-required="true" />
-          <input type="email" name="email" placeholder="Your Email Address" required aria-required="true" />
-          <textarea name="message" rows="5" placeholder="Write your message here..." required aria-required="true"></textarea>
-          <button type="submit" aria-label="Send message">Send Message</button>
-        </form>
-      </section>
+
+<header>
+  <nav id="navbar">
+    <a href="#about" class="active">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#volunteering">Volunteering</a>
+    <a href="#languages">Languages</a>
+    <a href="#goals">Future Goals</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section id="about" class="fade-slide">
+    <img src="syful-profile.jpg" alt="Md Syful Islam Siyam" class="profile-img" />
+    <h1 style="text-align:center; color:#5af;">Md Syful Islam Siyam</h1>
+    <p style="text-align:center; font-weight:600; color:#5af; font-size:1.1rem;">
+      Building Secure & Real-Time Systems | Open to Global Opportunities | Dhaka, Bangladesh
+    </p>
+    <div class="typed-text" id="typed"></div>
+    <p>
+      Greetings! I am <strong>Md Syful Islam Siyam</strong>, a dedicated Computer Science and Engineering student specializing in real-time systems, cybersecurity, and web application development.<br>
+      My passion lies in crafting secure and scalable technologies that deliver meaningful impact globally.<br>
+      I am committed to writing clean, maintainable code and continuously expanding my expertise to provide innovative and professional solutions.
+    </p>
+  </section>
+
+  <section id="skills" class="fade-slide">
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <div>C</div>
+      <div>C++</div>
+      <div>Python</div>
+      <div>HTML</div>
+      <div>CSS</div>
+      <div>JavaScript</div>
+      <div>Cybersecurity</div>
+      <div>Real-Time Systems</div>
+      <div>Clean Code</div>
+      <div>Scalable Design</div>
     </div>
-  </div>
+  </section>
 
-  <script>
-    // Simple tabs script for accessibility & toggling active class
-    const tabs = document.querySelectorAll('nav.tabs button.tab-btn');
-    const sections = document.querySelectorAll('.tab-content > section');
+  <section id="projects" class="fade-slide">
+    <h2>Highlighted Projects</h2>
+    <div class="project">
+      <h3>Real-Time GPS Bus Tracking System</h3>
+      <p>Developed a high-performance GPS tracking application using C language, focusing on real-time data processing and responsive updates. This project emphasizes speed and accuracy for efficient public transport management.</p>
+    </div>
+    <div class="project">
+      <h3>Secure Web App Development</h3>
+      <p>Built secure, scalable web applications implementing best practices in cybersecurity and clean coding. Utilized modern web technologies to ensure robust and maintainable solutions.</p>
+    </div>
+    <div class="project">
+      <h3>Cybersecurity Research & Tools</h3>
+      <p>Conducted in-depth research on ethical hacking and network security, developing tools and scripts to enhance system defenses and vulnerability assessments.</p>
+    </div>
+  </section>
 
-    tabs.forEach((tab, idx) => {
-      tab.addEventListener('click', () => {
-        // Reset all tabs and panels
-        tabs.forEach(t => {
-          t.classList.remove('active');
-          t.setAttribute('aria-selected', 'false');
-          t.setAttribute('tabindex', '-1');
-        });
-        sections.forEach(s => s.classList.remove('active'));
+  <section id="education" class="fade-slide">
+    <h2>Education</h2>
+    <p>B.Sc. in Computer Science & Engineering, Daffodil International University, Dhaka — Currently Enrolled</p>
+    <p>Higher Secondary Certificate (HSC), BIRSHRESTHO Noor Mohammad Public School and College — GPA: 5.00</p>
+  </section>
 
-        // Activate clicked tab & panel
-        tab.classList.add('active');
-        tab.setAttribute('aria-selected', 'true');
-        tab.setAttribute('tabindex', '0');
-        sections[idx].classList.add('active');
-        sections[idx].focus();
-      });
+  <section id="volunteering" class="fade-slide">
+    <h2>Volunteering</h2>
+    <p>Active volunteer with Bangladesh Red Crescent Society (BDRCS) and Youth Action For Social Development (YASD), contributing time and skills towards community development and disaster relief initiatives.</p>
+  </section>
+
+  <section id="languages" class="fade-slide">
+    <h2>Languages</h2>
+    <p>Fluent in Bengali and English, with strong written and verbal communication skills in both languages.</p>
+  </section>
+
+  <section id="goals" class="fade-slide">
+    <h2>Future Goals</h2>
+    <p>Aspiring to become a globally recognized cybersecurity expert and system architect, focusing on building secure, scalable real-time systems that positively impact lives worldwide. Pursuing advanced degrees and certifications in cybersecurity and real-time embedded systems.</p>
+  </section>
+
+  <section id="contact" class="fade-slide">
+    <h2>Contact Me</h2>
+    <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain" onsubmit="alert('Thank you for contacting me! Please check your email client to send the message.');">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="Name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="Email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="Message" rows="5" required></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Md Syful Islam Siyam. All rights reserved.
+</footer>
+
+<!-- GSAP and Typed.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<script>
+  // Navigation active link highlight on scroll
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 80;
+      if(scrollY >= sectionTop) {
+        current = section.getAttribute('id');
+      }
     });
 
-    // Optional: Simple typing animation for the typed-text element
-    const typedText = document.getElementById('typed');
-    const phrases = [
-      "Aspiring Cybersecurity Expert",
-      "Real-Time Systems Developer",
-      "Web Application Builder",
-      "Clean Code Enthusiast"
-    ];
-    let phraseIndex = 0, letterIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-      const current = phrases[phraseIndex];
-      let displayed = current.slice(0, letterIndex);
-
-      typedText.textContent = displayed;
-
-      if (!isDeleting && letterIndex < current.length) {
-        letterIndex++;
-        setTimeout(type, 150);
-      } else if (isDeleting && letterIndex > 0) {
-        letterIndex--;
-        setTimeout(type, 80);
-      } else {
-        isDeleting = !isDeleting;
-        if (!isDeleting) {
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          setTimeout(type, 1200);
-        } else {
-          setTimeout(type, 400);
-        }
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if(link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
       }
-    }
-    type();
-  </script>
+    });
+  });
+
+  // Scroll reveal fade-slide animation
+  const fadeSlides = document.querySelectorAll('.fade-slide');
+  const revealOnScroll = () => {
+    fadeSlides.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.85) {
+        el.classList.add('show');
+      }
+    });
+  };
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  // Typed.js for typed text animation
+  const typed = new Typed('#typed', {
+    strings: [
+      'Aspiring Cybersecurity Expert',
+      'Real-Time Systems Developer',
+      'Web Application Builder',
+      'Clean Code Enthusiast'
+    ],
+    typeSpeed: 60,
+    backSpeed: 35,
+    backDelay: 1800,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|',
+  });
+
+  // GSAP scroll-triggered animations (optional, can expand)
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.utils.toArray('section').forEach(section => {
+    gsap.from(section, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }
+    });
+  });
+
+  // Optional: Custom cursor effect similar to original site (simple version)
+  const cursor = document.createElement('div');
+  cursor.style.width = '20px';
+  cursor.style.height = '20px';
+  cursor.style.border = '2px solid #5af';
+  cursor.style.borderRadius = '50%';
+  cursor.style.position = 'fixed';
+  cursor.style.pointerEvents = 'none';
+  cursor.style.transition = 'transform 0.15s ease, background-color 0.3s ease';
+  cursor.style.zIndex = 10000;
+  document.body.appendChild(cursor);
+
+  window.addEventListener('mousemove', e => {
+    cursor.style.left = (e.clientX - 10) + 'px';
+    cursor.style.top = (e.clientY - 10) + 'px';
+  });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'scale(2)';
+      cursor.style.backgroundColor = '#5af';
+    });
+    el.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'scale(1)';
+      cursor.style.backgroundColor = 'transparent';
+    });
+  });
+</script>
+
 </body>
 </html>

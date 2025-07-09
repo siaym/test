@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Md Syful Islam Siyam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-barba="wrapper">
+
+    <div class="transition-screen"></div>
+
+    <nav>
+        <a href="index.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="experience.html">Experience</a>
+        <a href="contact.html" class="active">Contact</a>
+    </nav>
+
+    <main data-barba="container" data-barba-namespace="contact">
+         <section class="content-container">
+            <h2 class="section-title content-animate">Get In <span>Touch</span></h2>
+            <p class="content-animate">I'm open to discussing new projects and opportunities. Feel free to send me a message.</p>
+            <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain" class="content-animate">
+                <input type="text" name="Name" placeholder="Your Name" required>
+                <input type="email" name="Email" placeholder="Your Email" required>
+                <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -10,12 +10,14 @@
   * {
     margin: 0; padding: 0; box-sizing: border-box;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     font-family: 'Poppins', sans-serif;
     background: #0a0a0a;
     color: #cfd8dc;
     overflow-x: hidden;
-    scroll-behavior: smooth;
   }
   a {
     color: #5af;
@@ -25,14 +27,7 @@
     text-decoration: underline;
   }
 
-  /* Container */
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 3rem 1rem 5rem;
-  }
-
-  /* Header */
+  /* Header & nav */
   header {
     position: fixed;
     width: 100%;
@@ -69,13 +64,22 @@
     width: 100%;
   }
 
+  /* Main container */
+  main.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5rem 1rem 5rem;
+  }
+
   /* Sections */
   section {
     min-height: 100vh;
-    padding-top: 6rem;
+    padding-top: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
   }
   section > h2 {
     font-weight: 600;
@@ -84,8 +88,7 @@
     color: #5af;
     text-align: center;
   }
-  section p,
-  section ul {
+  section p, section ul {
     font-weight: 300;
     line-height: 1.6;
     max-width: 700px;
@@ -94,10 +97,12 @@
   }
   section ul {
     list-style: none;
+    padding-left: 0;
   }
   section ul li {
     margin-bottom: 0.8rem;
   }
+
   /* Typed text */
   .typed-text {
     color: #5af;
@@ -105,9 +110,10 @@
     font-size: 1.25rem;
     letter-spacing: 0.12em;
     text-align: center;
-    margin-top: 0.25rem;
+    margin: 0 auto 2rem;
     height: 1.5rem; /* prevent jump */
     white-space: nowrap;
+    max-width: 300px;
   }
 
   /* Profile Image */
@@ -151,6 +157,9 @@
     margin-bottom: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 0 25px #2a48ff55 inset;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .project h3 {
     color: #5af;
@@ -229,12 +238,17 @@
 
   /* Responsive */
   @media (max-width: 600px) {
-    header nav {
+    nav {
       gap: 1rem;
       font-size: 0.9rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     section > h2 {
       font-size: 2rem;
+    }
+    .skills-grid {
+      grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
     }
   }
 </style>
@@ -358,15 +372,16 @@
     const scrollY = window.pageYOffset;
 
     sections.forEach(section => {
-      const sectionTop = section.offsetTop - 80;
-      if(scrollY >= sectionTop) {
+      const sectionTop = section.offsetTop - 90; // account for fixed header
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
         current = section.getAttribute('id');
       }
     });
 
     navLinks.forEach(link => {
       link.classList.remove('active');
-      if(link.getAttribute('href') === '#' + current) {
+      if (link.getAttribute('href') === '#' + current) {
         link.classList.add('active');
       }
     });
@@ -401,7 +416,7 @@
     cursorChar: '|',
   });
 
-  // GSAP scroll-triggered animations (optional, can expand)
+  // GSAP scroll-triggered animations for fade-in on sections
   gsap.registerPlugin(ScrollTrigger);
   gsap.utils.toArray('section').forEach(section => {
     gsap.from(section, {
@@ -417,7 +432,7 @@
     });
   });
 
-  // Optional: Custom cursor effect similar to original site (simple version)
+  // Custom cursor effect
   const cursor = document.createElement('div');
   cursor.style.width = '20px';
   cursor.style.height = '20px';

@@ -2,65 +2,283 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Md Syful Islam Siyam | Skills</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="css/style.css" rel="stylesheet" />
+  <title>Skills | Md Syful Islam Siyam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #12131e;
+      --text: #e0e0e0;
+      --accent: #3a86ff;
+      --nav-bg: #1b1b1b;
+      --card-bg: rgba(30, 30, 40, 0.7);
+      --card-border: rgba(58, 134, 255, 0.3);
+      --glow: rgba(58, 134, 255, 0.3);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transform: translateY(100vh); /* Start below screen */
+      opacity: 0;
+      transition: transform 0.7s ease, opacity 0.7s ease;
+    }
+
+    nav {
+      height: 72px;
+      background: var(--nav-bg);
+      display: flex;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 1.5rem;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    nav a:hover,
+    nav a[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    #dark-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.7rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    main {
+      padding: 100px 2rem 2rem;
+      text-align: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #bbb;
+    }
+
+    .instruction {
+      font-size: 0.95rem;
+      color: #888;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .slider {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      padding: 1rem 0;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      flex: 1;
+    }
+
+    .slider::-webkit-scrollbar {
+      display: none;
+    }
+
+    .card {
+      flex: 0 0 300px;
+      height: 280px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.04);
+      box-shadow: 0 0 15px var(--glow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: #ccc;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 auto;
+      max-width: 90%;
+    }
+
+    .scroll-button {
+      background: var(--accent);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .scroll-button:hover {
+      background: #0057d9;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex: 0 0 85%;
+        height: auto;
+      }
+
+      .scroll-button {
+        font-size: 1.5rem;
+        padding: 0.5rem 0.9rem;
+      }
+    }
+
+    .dark {
+      --bg: #0b0c12;
+      --text: #cfcfd0;
+      --accent: #5599ff;
+      --nav-bg: #14151f;
+      --card-bg: rgba(20, 20, 30, 0.7);
+      --card-border: rgba(85, 153, 255, 0.4);
+      --glow: rgba(85, 153, 255, 0.5);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">About</a>
-      <a href="skills.html" class="active">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="experience.html">Experience</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section id="skills" class="fade-in">
-      <h2 style="text-align:center; color:#5af; font-weight:700; font-size:2.5rem; margin-bottom:2rem;">Technical Skills</h2>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(120px, 1fr)); gap:1.5rem; max-width:700px; margin:0 auto;">
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          C
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          C++
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          Python
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          HTML
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          CSS
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          JavaScript
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          Cybersecurity
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          Real-Time Systems
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          Clean Code
-        </div>
-        <div style="background:#111; padding:1rem; border-radius:8px; box-shadow:0 0 10px #3355ff33 inset; text-align:center; font-weight:600; color:#5af; transition:transform 0.3s ease;">
-          Scalable Design
-        </div>
-      </div>
-    </section>
-  </main>
+<button id="dark-toggle">🌙</button>
 
-  <footer>
-    &copy; 2025 Md Syful Islam Siyam. All rights reserved.
-  </footer>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="skills.html" aria-current="page">Skills</a>
+  <a href="projects.html">Projects</a>
+  <a href="education.html">Education</a>
+  <a href="volunteering.html">Volunteering</a>
+  <a href="languages.html">Languages</a>
+  <a href="future-goals.html">Future Goals</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="js/app.js"></script>
+<main>
+  <h2>Skills</h2>
+  <p class="subtitle">Technologies I use to build secure, scalable systems</p>
+  <p class="instruction">Swipe or use the arrows to explore my skill set</p>
+
+  <div class="slider-wrapper">
+    <button class="scroll-button" onclick="scrollSlider(-1)">←</button>
+
+    <div class="slider" id="skill-slider">
+      <div class="card"><h3>C</h3><p>Low-level, high-performance language used for real-time GPS systems and embedded apps.</p></div>
+      <div class="card"><h3>C++</h3><p>Advanced system design with object-oriented programming for scalable solutions.</p></div>
+      <div class="card"><h3>Python</h3><p>Scripting, automation, and tool development for cybersecurity and backend logic.</p></div>
+      <div class="card"><h3>HTML/CSS/JS</h3><p>Frontend development with responsive, animated, and secure interfaces.</p></div>
+      <div class="card"><h3>Cybersecurity</h3><p>System hardening, ethical hacking, and vulnerability analysis practices.</p></div>
+      <div class="card"><h3>Real-Time Systems</h3><p>Latency-optimized systems built for live updates, embedded apps, and IoT.</p></div>
+      <div class="card"><h3>Clean Code</h3><p>Maintainable, well-structured, and readable code with best practices.</p></div>
+      <div class="card"><h3>Scalable Design</h3><p>Architecture that supports growth without compromising performance.</p></div>
+    </div>
+
+    <button class="scroll-button" onclick="scrollSlider(1)">→</button>
+  </div>
+</main>
+
+<!-- Scripts -->
+<script>
+  // Dark Mode Toggle
+  const toggle = document.getElementById('dark-toggle');
+  toggle.onclick = () => {
+    document.body.classList.toggle('dark');
+    localStorage.setItem('darkMode', document.body.classList.contains('dark'));
+    toggle.textContent = document.body.classList.contains('dark') ? "☀️" : "🌙";
+  };
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark');
+    toggle.textContent = "☀️";
+  }
+
+  // Slider scroll
+  const slider = document.getElementById('skill-slider');
+  function scrollSlider(direction) {
+    slider.scrollBy({ left: direction * 340, behavior: 'smooth' });
+  }
+
+  // Scroll page transition
+  const pages = [
+    "index.html", "about.html", "skills.html", "projects.html",
+    "education.html", "volunteering.html", "languages.html",
+    "future-goals.html", "contact.html"
+  ];
+  let scrollTimeout, isTransitioning = false;
+  function navigate(current, dir) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    const i = pages.indexOf(current);
+    const ni = dir === "down" ? i + 1 : i - 1;
+    if (ni < 0 || ni >= pages.length) {
+      isTransitioning = false;
+      return;
+    }
+    document.body.style.transition = "transform 0.6s ease, opacity 0.6s ease";
+    document.body.style.transform = dir === "down" ? "translateY(-100vh)" : "translateY(100vh)";
+    document.body.style.opacity = "0";
+    setTimeout(() => window.location.href = pages[ni], 500);
+  }
+
+  window.addEventListener("wheel", (e) => {
+    if (scrollTimeout) return;
+    const current = window.location.pathname.split("/").pop() || "index.html";
+    if (e.deltaY > 0) navigate(current, "down");
+    else if (e.deltaY < 0) navigate(current, "up");
+    scrollTimeout = setTimeout(() => scrollTimeout = null, 700);
+  });
+
+  // Entrance animation on load
+  window.onload = () => {
+    document.body.style.transform = "translateY(0)";
+    document.body.style.opacity = "1";
+  };
+</script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Md Syful Islam Siyam</title>
+  <title>Future Goals | Md Syful Islam Siyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -12,8 +12,6 @@
       --accent: #3a86ff;
       --border: #3a86ff44;
       --card-bg: #1a1d2a;
-      --input-bg: #252836;
-      --input-border: #3a86ff88;
     }
     body {
       margin: 0;
@@ -49,76 +47,31 @@
     }
     main {
       padding: 120px 2rem 3rem;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
+      text-align: center;
     }
     h1 {
       font-size: 2.5rem;
       color: var(--accent);
-      text-align: center;
       margin-bottom: 0.3rem;
     }
     .subtitle {
       color: #aaa;
-      text-align: center;
       margin-bottom: 3rem;
       font-size: 1.1rem;
     }
-    form {
+    .goals-list {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: 0 0 15px #3a86ff22;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    label {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      display: block;
-      color: var(--accent);
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      background: var(--input-bg);
-      border: 1.5px solid var(--input-border);
-      border-radius: 8px;
-      padding: 0.7rem 1rem;
-      font-size: 1rem;
-      color: var(--text);
-      resize: vertical;
-      transition: border-color 0.3s ease;
-      width: 100%;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-    textarea {
-      min-height: 120px;
-    }
-    button {
-      background: var(--accent);
-      border: none;
-      border-radius: 10px;
-      color: var(--bg);
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-    }
-    button:hover {
-      background: #2c6ef2;
+      padding: 2rem 3rem;
+      box-shadow: 0 0 12px #3a86ff22;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      text-align: left;
+      max-width: 650px;
+      margin: 0 auto;
     }
     #dark-toggle {
       position: fixed;
@@ -145,26 +98,23 @@
   <a href="education.html">Education</a>
   <a href="volunteering.html">Volunteering</a>
   <a href="languages.html">Languages</a>
-  <a href="future-goals.html">Future Goals</a>
-  <a href="contact.html" aria-current="page">Contact</a>
+  <a href="future-goals.html" aria-current="page">Future Goals</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <main>
-  <h1>Contact Me</h1>
-  <p class="subtitle">Feel free to reach out for collaborations, questions, or opportunities.</p>
+  <h1>Future Goals</h1>
+  <p class="subtitle">Ambitions shaping my journey and impact in technology and cybersecurity</p>
 
-  <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="Name" placeholder="Your full name" required />
-
-    <label for="email">Email</label>
-    <input type="email" id="email" name="Email" placeholder="your.email@example.com" required />
-
-    <label for="message">Message</label>
-    <textarea id="message" name="Message" placeholder="Write your message here..." required></textarea>
-
-    <button type="submit">Send Message</button>
-  </form>
+  <div class="goals-list">
+    <ul>
+      <li><strong>Become a globally recognized cybersecurity expert and system architect.</strong></li>
+      <li><strong>Design and build secure, scalable real-time embedded systems.</strong></li>
+      <li><strong>Obtain advanced degrees and certifications in cybersecurity and embedded systems.</strong></li>
+      <li><strong>Contribute to impactful open-source projects and security research.</strong></li>
+      <li><strong>Mentor aspiring tech professionals and foster community growth.</strong></li>
+    </ul>
+  </div>
 </main>
 
 <script>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Md Syful Islam Siyam</title>
+  <title>Education | Md Syful Islam Siyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -12,9 +12,8 @@
       --accent: #3a86ff;
       --border: #3a86ff44;
       --card-bg: #1a1d2a;
-      --input-bg: #252836;
-      --input-border: #3a86ff88;
     }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
@@ -25,6 +24,7 @@
       opacity: 0;
       transition: transform 0.7s ease, opacity 0.7s ease;
     }
+
     nav {
       background: #1b1d28;
       display: flex;
@@ -37,89 +37,127 @@
       right: 0;
       z-index: 1000;
     }
+
     nav a {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
       font-size: 1rem;
     }
+
     nav a:hover,
     nav a[aria-current="page"] {
       color: var(--accent);
     }
+
     main {
       padding: 120px 2rem 3rem;
-      max-width: 600px;
+      max-width: 1000px;
       margin: 0 auto;
     }
+
     h1 {
       font-size: 2.5rem;
       color: var(--accent);
       text-align: center;
       margin-bottom: 0.3rem;
     }
+
     .subtitle {
-      color: #aaa;
       text-align: center;
+      color: #aaa;
       margin-bottom: 3rem;
-      font-size: 1.1rem;
     }
-    form {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: 0 0 15px #3a86ff22;
+
+    .section-title {
+      font-size: 1.6rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Timeline Section */
+    .edu-timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 2rem;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2.5rem;
     }
-    label {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      display: block;
-      color: var(--accent);
+
+    .edu-item {
+      position: relative;
     }
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      background: var(--input-bg);
-      border: 1.5px solid var(--input-border);
-      border-radius: 8px;
-      padding: 0.7rem 1rem;
-      font-size: 1rem;
-      color: var(--text);
-      resize: vertical;
-      transition: border-color 0.3s ease;
-      width: 100%;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -1.1rem;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
       box-shadow: 0 0 10px var(--accent);
     }
-    textarea {
-      min-height: 120px;
+
+    .edu-item h3 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
     }
-    button {
-      background: var(--accent);
-      border: none;
+
+    .edu-item span {
+      font-size: 0.95rem;
+      color: #aaa;
+    }
+
+    .edu-item p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 0.3rem;
+    }
+
+    /* Certificates */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .cert-card {
+      background: var(--card-bg);
+      padding: 1rem 1.2rem;
       border-radius: 10px;
-      color: var(--bg);
-      font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 10px #3a86ff11;
+      transition: transform 0.3s;
     }
-    button:hover {
-      background: #2c6ef2;
+
+    .cert-card:hover {
+      transform: scale(1.02);
     }
+
+    .cert-card h4 {
+      margin: 0;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .cert-card span {
+      display: block;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin: 0.3rem 0;
+    }
+
+    .cert-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
     #dark-toggle {
       position: fixed;
       top: 20px;
@@ -142,29 +180,53 @@
   <a href="about.html">About</a>
   <a href="skills.html">Skills</a>
   <a href="projects.html">Projects</a>
-  <a href="education.html">Education</a>
+  <a href="education.html" aria-current="page">Education</a>
   <a href="volunteering.html">Volunteering</a>
   <a href="languages.html">Languages</a>
   <a href="future-goals.html">Future Goals</a>
-  <a href="contact.html" aria-current="page">Contact</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <main>
-  <h1>Contact Me</h1>
-  <p class="subtitle">Feel free to reach out for collaborations, questions, or opportunities.</p>
+  <h1>Education</h1>
+  <p class="subtitle">Academic journey and achievements so far</p>
 
-  <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="Name" placeholder="Your full name" required />
+  <!-- Education Section -->
+  <h2 class="section-title">Academic Background</h2>
+  <div class="edu-timeline">
+    <div class="edu-item">
+      <h3>B.Sc. in Computer Science & Engineering</h3>
+      <span>Daffodil International University — Ongoing</span>
+      <p>Focusing on real-time systems, cybersecurity, and clean code principles.</p>
+    </div>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="Email" placeholder="your.email@example.com" required />
+    <div class="edu-item">
+      <h3>Higher Secondary Certificate (HSC)</h3>
+      <span>BIRSHRESTHO Noor Mohammad Public School and College — GPA: 5.00</span>
+      <p>Strong academic performance in science stream, with emphasis on computing and mathematics.</p>
+    </div>
+  </div>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="Message" placeholder="Write your message here..." required></textarea>
+  <!-- Certificate Section -->
+  <h2 class="section-title">Certificates</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <h4>Introduction to Cybersecurity</h4>
+      <span>Coursera · 2024</span>
+      <p>Covered network threats, secure design principles, and ethical hacking basics.</p>
+    </div>
+    <div class="cert-card">
+      <h4>Modern Web Application Security</h4>
+      <span>Udemy · 2024</span>
+      <p>Focused on OWASP top 10 vulnerabilities and secure coding practices in JavaScript.</p>
+    </div>
+    <div class="cert-card">
+      <h4>Data Structures & Algorithms</h4>
+      <span>Programming Hero · 2023</span>
+      <p>Strengthened algorithmic thinking and C++ proficiency.</p>
+    </div>
+  </div>
 
-    <button type="submit">Send Message</button>
-  </form>
 </main>
 
 <script>
@@ -198,6 +260,7 @@
     document.body.style.opacity = "0";
     setTimeout(() => window.location.href = pages[ni], 500);
   }
+
   window.addEventListener("wheel", (e) => {
     if (scrollTimeout) return;
     const current = window.location.pathname.split("/").pop() || "index.html";
@@ -205,6 +268,7 @@
     else if (e.deltaY < 0) navigate(current, "up");
     scrollTimeout = setTimeout(() => scrollTimeout = null, 700);
   });
+
   window.onload = () => {
     document.body.style.transform = "translateY(0)";
     document.body.style.opacity = "1";

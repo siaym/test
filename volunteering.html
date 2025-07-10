@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact | Md Syful Islam Siyam</title>
+  <title>Volunteering | Md Syful Islam Siyam</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -12,8 +12,6 @@
       --accent: #3a86ff;
       --border: #3a86ff44;
       --card-bg: #1a1d2a;
-      --input-bg: #252836;
-      --input-border: #3a86ff88;
     }
     body {
       margin: 0;
@@ -49,7 +47,7 @@
     }
     main {
       padding: 120px 2rem 3rem;
-      max-width: 600px;
+      max-width: 900px;
       margin: 0 auto;
     }
     h1 {
@@ -59,66 +57,96 @@
       margin-bottom: 0.3rem;
     }
     .subtitle {
-      color: #aaa;
       text-align: center;
+      color: #aaa;
       margin-bottom: 3rem;
-      font-size: 1.1rem;
     }
-    form {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2.5rem;
-      box-shadow: 0 0 15px #3a86ff22;
+    .section-title {
+      font-size: 1.6rem;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    /* Organizations */
+    .org-list {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
     }
-    label {
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-      display: block;
-      color: var(--accent);
-    }
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      background: var(--input-bg);
-      border: 1.5px solid var(--input-border);
-      border-radius: 8px;
-      padding: 0.7rem 1rem;
-      font-size: 1rem;
-      color: var(--text);
-      resize: vertical;
-      transition: border-color 0.3s ease;
-      width: 100%;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-    }
-    textarea {
-      min-height: 120px;
-    }
-    button {
-      background: var(--accent);
-      border: none;
+    .org-item {
+      background: var(--card-bg);
+      padding: 1rem 1.5rem;
       border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 10px #3a86ff11;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: default;
+      transition: transform 0.25s;
+    }
+    .org-item:hover {
+      transform: scale(1.02);
+    }
+    .org-icon {
+      background: var(--accent);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       color: var(--bg);
       font-weight: 700;
-      font-size: 1.2rem;
-      padding: 0.8rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      box-shadow: 0 0 10px var(--accent);
+      flex-shrink: 0;
     }
-    button:hover {
-      background: #2c6ef2;
+    .org-details {
+      flex: 1;
+    }
+    .org-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    .org-desc {
+      color: #aaa;
+      font-size: 1rem;
+    }
+    /* Roles & Experiences */
+    .roles-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .role-item {
+      background: var(--card-bg);
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 12px #3a86ff11;
+    }
+    .role-title {
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .role-org {
+      color: #888;
+      font-size: 1rem;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .role-desc {
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.4;
     }
     #dark-toggle {
       position: fixed;
@@ -143,28 +171,51 @@
   <a href="skills.html">Skills</a>
   <a href="projects.html">Projects</a>
   <a href="education.html">Education</a>
-  <a href="volunteering.html">Volunteering</a>
+  <a href="volunteering.html" aria-current="page">Volunteering</a>
   <a href="languages.html">Languages</a>
   <a href="future-goals.html">Future Goals</a>
-  <a href="contact.html" aria-current="page">Contact</a>
+  <a href="contact.html">Contact</a>
 </nav>
 
 <main>
-  <h1>Contact Me</h1>
-  <p class="subtitle">Feel free to reach out for collaborations, questions, or opportunities.</p>
+  <h1>Volunteering</h1>
+  <p class="subtitle">Contributing time and skills to community development and disaster relief</p>
 
-  <form action="mailto:officehub.siyam@gmail.com" method="POST" enctype="text/plain">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="Name" placeholder="Your full name" required />
+  <h2 class="section-title">Organizations</h2>
+  <div class="org-list">
+    <div class="org-item" title="Bangladesh Red Crescent Society">
+      <div class="org-icon">BDR</div>
+      <div class="org-details">
+        <div class="org-name">Bangladesh Red Crescent Society (BDRCS)</div>
+        <div class="org-desc">Participated in disaster relief efforts and community health initiatives.</div>
+      </div>
+    </div>
+    <div class="org-item" title="Youth Action For Social Development">
+      <div class="org-icon">YASD</div>
+      <div class="org-details">
+        <div class="org-name">Youth Action For Social Development (YASD)</div>
+        <div class="org-desc">Engaged in youth empowerment programs and social awareness campaigns.</div>
+      </div>
+    </div>
+  </div>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="Email" placeholder="your.email@example.com" required />
-
-    <label for="message">Message</label>
-    <textarea id="message" name="Message" placeholder="Write your message here..." required></textarea>
-
-    <button type="submit">Send Message</button>
-  </form>
+  <h2 class="section-title">Roles & Experiences</h2>
+  <div class="roles-list">
+    <div class="role-item">
+      <div class="role-title">Volunteer - Disaster Relief</div>
+      <div class="role-org">Bangladesh Red Crescent Society</div>
+      <div class="role-desc">
+        Assisted in emergency response during floods and natural disasters by providing logistical support and community outreach.
+      </div>
+    </div>
+    <div class="role-item">
+      <div class="role-title">Community Organizer</div>
+      <div class="role-org">Youth Action For Social Development</div>
+      <div class="role-desc">
+        Coordinated local events and workshops focused on youth engagement, education, and social welfare projects.
+      </div>
+    </div>
+  </div>
 </main>
 
 <script>

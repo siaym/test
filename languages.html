@@ -184,5 +184,53 @@
   };
 </script>
 
+
+<script>
+  const pages = [
+    "index.html",
+    "about.html",
+    "skills.html",
+    "projects.html",
+    "education.html",
+    "volunteering.html",
+    "languages.html",
+    "future-goals.html",
+    "contact.html"
+  ];
+  let scrollTimeout = null;
+  let isTransitioning = false;
+
+  function navigatePage(current, dir) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+
+    const i = pages.indexOf(current);
+    const ni = dir === 'down' ? i + 1 : i - 1;
+
+    if (ni < 0 || ni >= pages.length) {
+      isTransitioning = false;
+      return;
+    }
+
+    document.body.classList.add('fade-out');
+    setTimeout(() => {
+      window.location.href = pages[ni];
+    }, 500);
+  }
+
+  window.addEventListener('wheel', e => {
+    if (scrollTimeout) return;
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    if (e.deltaY > 0) navigatePage(current, 'down');
+    else if (e.deltaY < 0) navigatePage(current, 'up');
+    scrollTimeout = setTimeout(() => scrollTimeout = null, 800);
+  });
+
+  window.onload = () => {
+    document.body.style.opacity = 1;
+    document.body.style.transform = 'translateY(0)';
+  };
+</script>
+
 </body>
 </html>
